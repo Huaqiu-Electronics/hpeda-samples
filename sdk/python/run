@@ -1,0 +1,14 @@
+#!/bin/bash
+# 使用仓库 sdk/python/.venv 跑 Samples/sdk/python 示例。
+set -euo pipefail
+HERE="$(cd "$(dirname "$0")" && pwd)"
+SAMPLES="$(cd "$HERE/../.." && pwd)"
+REPO="$(cd "$SAMPLES/.." && pwd)"
+PY="$REPO/sdk/python/.venv/bin/python"
+if [[ ! -x "$PY" ]]; then
+  echo "missing $PY — recreate sdk/python/.venv + pip install -r requirements-IPC.txt" >&2
+  exit 1
+fi
+export PYTHONPATH="$REPO/sdk/python${PYTHONPATH:+:$PYTHONPATH}"
+cd "$HERE"
+exec "$PY" "$@"

@@ -1,0 +1,33 @@
+#!/bin/bash
+# 使用仓库 sdk/javascript 依赖 + 内置/系统 Node 跑示例。
+set -euo pipefail
+HERE="$(cd "$(dirname "$0")" && pwd)"
+SAMPLES="$(cd "$HERE/../.." && pwd)"
+REPO="$(cd "$SAMPLES/.." && pwd)"
+SDK_JS="$REPO/sdk/javascript"
+
+resolve_node() {
+  if [[ -n "${PCB_NODE_HOME:-}" ]]; then
+    for c in "$PCB_NODE_HOME/bin/node" "$PCB_NODE_HOME/node"; do
+      [[ -x "$c" ]] && { echo "$c"; return 0; }
+    done
+  fi
+  local arch; arch="$(uname -m)"
+  case "$arch" in arm64|aarch64) arch=arm64 ;; x86_64|amd64) arch=x86_64 ;; esac
+  for p in \
+    "$REPO/build/cmake/Runtime/App/HQ PCB.app/Contents/Resources/node/$arch/bin/node" \
+    "$REPO/cmake-build-release/Runtime/App/HQ PCB.app/Contents/Resources/node/$arch/bin/node"
+  do
+    [[ -x "$p" ]] && { echo "$p"; return 0; }
+  done
+  command -v node
+}
+
+NODE_BIN="$(resolve_node)" || { echo "missing node" >&2; exit 1; }
+if [[ ! -d "$SDK_JS/node_modules/@grpc/grpc-js" ]]; then
+  echo "installing sdk/javascript deps…" >&2
+  (cd "$SDK_JS" && npm install --no-fund --no-audit)
+fi
+export NODE_PATH="$SDK_JS${NODE_PATH:+:$NODE_PATH}"
+cd "$HERE"
+exec "$NODE_BIN" "$@"
