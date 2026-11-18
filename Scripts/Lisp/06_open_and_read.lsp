@@ -19,8 +19,8 @@
 (display *board*)
 (newline)
 
-;; Open via the same cmdlet surface as Console / Telnet (absolute path).
-(cmdlet (string-append "project.open " *board*))
+;; 内置开板：相对路径会先 pcb-resolve，再 project.open path=urlencode。
+(project-open *board*)
 
 (display ";; workspace-id = ")
 (display (workspace-id))

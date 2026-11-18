@@ -5,7 +5,7 @@ Usage:
   python-load Samples/Scripts/Python/09_action_route.py
 
 纸面 mm：VCC via @ (18,-15)；途经点/打孔点 @ (28,-10)。
-覆盖：环境变量 PCB_BOARD / PCB_STEP_MS / PCB_MOVE_GAP_MS / PCB_AFTER_START_MS。
+覆盖：环境变量 PCB_BOARD / PCB_STEP_MS / PCB_AFTER_START_MS。
 """
 
 from __future__ import annotations
@@ -17,7 +17,6 @@ from urllib.parse import quote
 import pcb_host as pcb
 
 STEP_MS = int(os.environ.get("PCB_STEP_MS", "60"))
-MOVE_GAP_MS = int(os.environ.get("PCB_MOVE_GAP_MS", "10"))
 AFTER_START_MS = int(os.environ.get("PCB_AFTER_START_MS", "200"))
 
 
@@ -41,17 +40,6 @@ def pause() -> None:
     pcb.sleep_ms(STEP_MS)
 
 
-def act_move_line(x0: float, y0: float, x1: float, y1: float, n: int) -> None:
-    steps = 1 if n < 1 else n
-    for i in range(steps):
-        t = 1.0 if steps == 1 else i / (steps - 1)
-        x = x0 + t * (x1 - x0)
-        y = y0 + t * (y1 - y0)
-        pcb.cmdlet(f"action.input move {x} {y}")
-        pcb.sleep_ms(MOVE_GAP_MS)
-    pause()
-
-
 def main() -> None:
     board = resolve_board()
     pcb.log(f";; open {board}")
@@ -69,14 +57,14 @@ def main() -> None:
     pause()
     pcb.log(";; action-current (after start) = " + pcb.cmdlet("action.current"))
 
-    act_move_line(6.0, -6.0, 18.0, -15.0, 8)
+    pcb.cmdlet("action.input move-line 6 -6 18 -15 8")
     pcb.cmdlet("action.input move 18 -15")
     pcb.sleep_ms(80)
     pcb.cmdlet("action.input click 18 -15")
     pause()
     pcb.sleep_ms(AFTER_START_MS)
 
-    act_move_line(18.0, -15.0, 28.0, -10.0, 10)
+    pcb.cmdlet("action.input move-line 18 -15 28 -10 10")
     pcb.cmdlet("action.input click 28 -10")
     pause()
 

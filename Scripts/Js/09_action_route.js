@@ -13,7 +13,6 @@ const path = require("path");
 const pcb = require("pcb_host");
 
 const STEP_MS = Number(process.env.PCB_STEP_MS || 60);
-const MOVE_GAP_MS = Number(process.env.PCB_MOVE_GAP_MS || 10);
 const AFTER_START_MS = Number(process.env.PCB_AFTER_START_MS || 200);
 
 function resolveBoard() {
@@ -42,18 +41,6 @@ function pause() {
   pcb.sleepMs(STEP_MS);
 }
 
-function actMoveLine(x0, y0, x1, y1, n) {
-  const steps = n < 1 ? 1 : n;
-  for (let i = 0; i < steps; i++) {
-    const t = steps === 1 ? 1.0 : i / (steps - 1);
-    const x = x0 + t * (x1 - x0);
-    const y = y0 + t * (y1 - y0);
-    pcb.cmdlet(`action.input move ${x} ${y}`);
-    pcb.sleepMs(MOVE_GAP_MS);
-  }
-  pause();
-}
-
 const board = resolveBoard();
 pcb.log(";; open " + board);
 pcb.cmdlet("project.open path=" + encodeURIComponent(board));
@@ -70,14 +57,14 @@ pcb.cmdlet("action.start route");
 pause();
 pcb.log(";; action-current (after start) = " + pcb.cmdlet("action.current"));
 
-actMoveLine(6.0, -6.0, 18.0, -15.0, 8);
+pcb.cmdlet("action.input move-line 6 -6 18 -15 8");
 pcb.cmdlet("action.input move 18 -15");
 pcb.sleepMs(80);
 pcb.cmdlet("action.input click 18 -15");
 pause();
 pcb.sleepMs(AFTER_START_MS);
 
-actMoveLine(18.0, -15.0, 28.0, -10.0, 10);
+pcb.cmdlet("action.input move-line 18 -15 28 -10 10");
 pcb.cmdlet("action.input click 28 -10");
 pause();
 

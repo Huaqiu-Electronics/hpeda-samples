@@ -20,7 +20,7 @@ mode lisp
 | `06_open_and_read.lsp` | **打开** `Samples/Boards` 样板板并读取 workspace/层/选择集 |
 | `07_read_selection.lsp` | **交互读取**：画布选中对象后打印 `(entity-get id)` |
 | `08_action_line.lsp` | **交互动作**：两点 click 后 `(action-input 'command "enter")` 提交（勿先 cancel） |
-| `09_action_route.lsp` | **走线**：打开 `01_tracks_vias` → `route` → `(action-input 'move/'click/'key)` + `sleep-ms` → Enter Finish → `zoomall` |
+| `09_action_route.lsp` | **走线**：`(project-open …)` → `route` → `(action-input 'move-line/'click/'dbclick)` → cancel → `zoomall` |
 
 ## 打开 PCB 与读取（推荐流程）
 
