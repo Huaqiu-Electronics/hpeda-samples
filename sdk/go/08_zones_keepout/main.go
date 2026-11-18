@@ -4,29 +4,29 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Huaqiu-Electronics/hqpcb-go-sdk"
-	"github.com/Huaqiu-Electronics/hpeda-samples/sdk/go/sampleutil"
+	hqeda "github.com/Huaqiu-Electronics/hqpcb-go-sdk"
+	"github.com/Huaqiu-Electronics/hpeda-samples/sdk/go/helper"
 )
 
 func main() {
-	pipe, gui, rest := sampleutil.ResolvePipe(os.Args)
+	pipe, gui, rest := helper.ResolvePipe(os.Args)
 	arg := ""
 	if len(rest) > 0 {
 		arg = rest[0]
 	}
-	path, err := sampleutil.BoardPath(arg, "keepout")
+	path, err := helper.BoardPath(arg, "keepout")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
-	cli := pcb.NewFlightIPC()
+	cli := hqeda.NewClientFactory()
 	if err := cli.Connect(pipe, gui); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
 	defer cli.Disconnect()
-	sampleutil.RequireWsDesign(cli.Pipe(), cli.PeerRole(), cli.PeerCaps().Workspace, cli.PeerCaps().Design)
-	board, err := pcb.OpenBoard(pcb.BindFlightIPC(cli), path, nil)
+	helper.CheckEnv(cli.Pipe(), cli.PeerRole(), cli.PeerCaps().Workspace, cli.PeerCaps().Design)
+	board, err := cli.OpenBoard(path)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)

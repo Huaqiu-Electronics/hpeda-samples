@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 "use strict";
-const { resolvePipe, loadSdk } = require("./_env");
+const { resolvePipe, loadSdk } = require("./helper");
 
 async function main() {
   const { pipe, gui } = resolvePipe(process.argv);
-  const { createPcbFlightIPC } = loadSdk();
-  const cli = createPcbFlightIPC();
+  const { createClientFactory } = loadSdk();
+  const cli = createClientFactory();
   await cli.connect(pipe, { gui });
   const catalog = await cli.methodsList();
   console.log("# pipe=" + cli.pipe + " role=" + cli.peerRole);

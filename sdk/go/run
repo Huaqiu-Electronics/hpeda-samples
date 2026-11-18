@@ -1,5 +1,5 @@
 #!/bin/bash
-# 在 Samples/sdk/go 模块下跑 numbered sample（replace 到仓库 sdk/go/pcb）。
+# 在 Samples/sdk/go 模块下跑 numbered sample（replace 到仓库 sdk/go/hqeda）。
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 NAME="${1:-}"

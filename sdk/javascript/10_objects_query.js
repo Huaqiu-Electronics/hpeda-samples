@@ -3,15 +3,15 @@
 /**
  * DoGet objects.list / query.table；Node 若拿不到 Arrow body 则回退 DoAction 计数。
  */
-const { resolvePipe, boardPath, requireWsDesign, loadSdk } = require("./_env");
+const { resolvePipe, boardPath, checkEnv, loadSdk } = require("./helper");
 
 async function main() {
   const { pipe, gui, rest } = resolvePipe(process.argv);
   const path = boardPath(rest[0], "all_basics");
-  const { createPcbFlightIPC, api } = loadSdk();
-  const cli = createPcbFlightIPC();
+  const { createClientFactory, api } = loadSdk();
+  const cli = createClientFactory();
   await cli.connect(pipe, { gui });
-  if (requireWsDesign(cli)) {
+  if (checkEnv(cli)) {
     cli.disconnect();
     process.exit(1);
   }

@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 "use strict";
-const { resolvePipe, loadSdk } = require("./_env");
+const { resolvePipe, loadSdk } = require("./helper");
 
 async function main() {
   const { pipe, gui, rest } = resolvePipe(process.argv);
   const key = rest[0] || "sample.theme";
   const value = rest[1] || "dark";
-  const { createPcbFlightIPC } = loadSdk();
-  const cli = createPcbFlightIPC();
+  const { createClientFactory } = loadSdk();
+  const cli = createClientFactory();
   await cli.connect(pipe, { gui });
   console.log(String(await cli.configSet(key, value)).trimEnd());
   const got = await cli.configGet(key);

@@ -6,15 +6,15 @@ from __future__ import annotations
 
 import sys
 
-from _env import ensure_sdk_path, resolve_pipe
+from helper import ensure_sdk_path, resolve_pipe
 
 ensure_sdk_path()
-from pcb_flight_IPC import PcbFlightIPC  # noqa: E402
+from hqeda_client import ClientFactory  # noqa: E402
 
 
 def main(argv: list[str]) -> int:
     pipe, gui, _ = resolve_pipe(argv)
-    cli = PcbFlightIPC()
+    cli = ClientFactory()
     cli.connect(pipe, gui=gui)
     catalog = cli.methods_list()
     print(f"# pipe={cli.pipe} role={cli.peer_role}")

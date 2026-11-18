@@ -6,17 +6,17 @@ from __future__ import annotations
 
 import sys
 
-from _env import ensure_sdk_path, resolve_pipe
+from helper import ensure_sdk_path, resolve_pipe
 
 ensure_sdk_path()
-from pcb_flight_IPC import PcbFlightIPC  # noqa: E402
+from hqeda_client import ClientFactory  # noqa: E402
 
 
 def main(argv: list[str]) -> int:
     pipe, gui, rest = resolve_pipe(argv)
     key = rest[0] if rest else "sample.theme"
     value = rest[1] if len(rest) > 1 else "dark"
-    cli = PcbFlightIPC()
+    cli = ClientFactory()
     cli.connect(pipe, gui=gui)
     print(cli.config_set(key, value).rstrip())
     got = cli.config_get(key)

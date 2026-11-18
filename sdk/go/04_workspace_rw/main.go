@@ -5,28 +5,28 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Huaqiu-Electronics/hqpcb-go-sdk"
-	"github.com/Huaqiu-Electronics/hpeda-samples/sdk/go/sampleutil"
+	hqeda "github.com/Huaqiu-Electronics/hqpcb-go-sdk"
+	"github.com/Huaqiu-Electronics/hpeda-samples/sdk/go/helper"
 )
 
 func main() {
-	pipe, gui, rest := sampleutil.ResolvePipe(os.Args)
+	pipe, gui, rest := helper.ResolvePipe(os.Args)
 	arg := ""
 	if len(rest) > 0 {
 		arg = rest[0]
 	}
-	path, err := sampleutil.BoardPath(arg, "tracks")
+	path, err := helper.BoardPath(arg, "tracks")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
-	cli := pcb.NewFlightIPC()
+	cli := hqeda.NewClientFactory()
 	if err := cli.Connect(pipe, gui); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
 	defer cli.Disconnect()
-	sampleutil.RequireWsDesign(cli.Pipe(), cli.PeerRole(), cli.PeerCaps().Workspace, cli.PeerCaps().Design)
+	helper.CheckEnv(cli.Pipe(), cli.PeerRole(), cli.PeerCaps().Workspace, cli.PeerCaps().Design)
 	fmt.Printf("pipe=%s\n", cli.Pipe())
 	fmt.Println("--- ws.open ---")
 	snap, err := cli.WsOpen(path)
@@ -35,12 +35,6 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Println(strings.TrimRight(snap, "\n"))
-	gen, err := cli.WsGen()
-	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
-	}
-	fmt.Printf("gen=%d\n", gen)
 	token := "samples-sdk-rw"
 	fmt.Println("--- design.lease / set / get / release ---")
 	out, err := cli.DesignLease(token)

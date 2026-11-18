@@ -1,21 +1,20 @@
 #!/usr/bin/env node
 "use strict";
-const { resolvePipe, boardPath, requireWsDesign, loadSdk } = require("./_env");
+const { resolvePipe, boardPath, checkEnv, loadSdk } = require("./helper");
 
 async function main() {
   const { pipe, gui, rest } = resolvePipe(process.argv);
   const path = boardPath(rest[0], "tracks");
-  const { createPcbFlightIPC } = loadSdk();
-  const cli = createPcbFlightIPC();
+  const { createClientFactory } = loadSdk();
+  const cli = createClientFactory();
   await cli.connect(pipe, { gui });
-  if (requireWsDesign(cli)) {
+  if (checkEnv(cli)) {
     cli.disconnect();
     process.exit(1);
   }
   console.log("pipe=" + cli.pipe);
   console.log("--- ws.open ---");
   console.log(String(await cli.wsOpen(path)).trimEnd());
-  console.log("gen=" + (await cli.wsGen()));
   const token = "samples-sdk-rw";
   console.log("--- design.lease / set / get / release ---");
   console.log(String(await cli.designLease(token)).trimEnd());

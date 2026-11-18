@@ -1,12 +1,15 @@
 # SDK 访问示例（Python / JavaScript / Go）
 
-通过 Arrow Flight IPC 访问 HQPCB，**读写** `Samples/Boards/hqpcb` 下的简易 V5 样板。
+通过 Arrow Flight IPC 访问 HQPCB，**读写** `Samples/Boards/hqpcb` 下的简易 V5 样板。  
+产品入口统一为 **ClientFactory**（Go `hqeda.NewClientFactory()` / Python `ClientFactory()` / JS `createClientFactory()`）。  
+端点解析在 SDK：`hqeda.ResolveEndpoint` / `resolve_endpoint` / `resolveEndpoint`；样例薄封装见各语言 `helper`。  
+写路径文档：[`sdk/docs/Flight-Write-API.md`](../../sdk/docs/Flight-Write-API.md)。
 
 | 语言 | 目录 | 运行 |
 |------|------|------|
-| Python | [`python/`](./python/) | `./python/run 06_nets_vias.py` |
-| JavaScript | [`javascript/`](./javascript/) | `./javascript/run 06_nets_vias.js` |
-| Go | [`go/`](./go/) | `./go/run 06_nets_vias` |
+| Python | [`python/`](./python/) | `./python/run 11_design_write.py` |
+| JavaScript | [`javascript/`](./javascript/) | `./javascript/run 11_design_write.js` |
+| Go | [`go/`](./go/) | `./go/run 11_design_write` |
 
 ## 样板板 ↔ 示例
 
@@ -22,6 +25,8 @@
 | `08_zones_keepout` | `06_keepout_netclass` | zones / drawings / bbox **读** |
 | `09_netclasses` | `11_diffpair_route` | design_settings / net_classes **读** |
 | `10_objects_query` | `04_all_basics` | DoGet objects.list / query.table **读** |
+| `11_design_write` | `01_tracks_vias` | `WriteLease` 批量 **写** + 错 token 拒写 |
+| `12_workspace_write` | `01`+`02` | ws.open / switch / close **写** |
 
 可用其它板替换默认路径，例如：
 
@@ -43,7 +48,7 @@
 
 - Python：`sdk/python/.venv` + `requirements-IPC.txt`
 - JS：`sdk/javascript` 下 `npm install`
-- Go：本机 `go`；`Samples/sdk/go/go.mod` 已 `replace` 到仓库内 `sdk/go/pcb`
+- Go：本机 `go`；`Samples/sdk/go/go.mod` 已 `replace` 到仓库内 `sdk/go/hqeda`
 
 ## 端点
 

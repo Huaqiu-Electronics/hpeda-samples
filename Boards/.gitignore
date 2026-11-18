@@ -1,0 +1,5 @@
+hqpcb/backups/
+hqpcb/*.crash_*
+hqpcb/*.rnvcache
+backups/
+convert_to_hqpcb.sh

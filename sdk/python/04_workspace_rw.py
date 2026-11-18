@@ -11,24 +11,23 @@ from __future__ import annotations
 
 import sys
 
-from _env import board_path, ensure_sdk_path, require_ws_design, resolve_pipe
+from helper import board_path, ensure_sdk_path, check_env, resolve_pipe
 
 ensure_sdk_path()
-from pcb_flight_IPC import PcbFlightIPC  # noqa: E402
+from hqeda_client import ClientFactory  # noqa: E402
 
 
 def main(argv: list[str]) -> int:
     pipe, gui, rest = resolve_pipe(argv)
     path = board_path(rest[0] if rest else None, preset="tracks")
-    cli = PcbFlightIPC()
+    cli = ClientFactory()
     cli.connect(pipe, gui=gui)
-    if (rc := require_ws_design(cli)) is not None:
+    if (rc := check_env(cli)) is not None:
         cli.disconnect()
         return rc
     print(f"pipe={cli.pipe}")
     print("--- ws.open ---")
     print(cli.ws_open(str(path)).rstrip())
-    print(f"gen={cli.ws_gen()}")
     token = "samples-sdk-rw"
     print("--- design.lease / set / get / release ---")
     print(cli.design_lease(token).rstrip())

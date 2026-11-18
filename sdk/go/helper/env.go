@@ -1,5 +1,5 @@
-// Package sampleutil：Samples/sdk/go 共用端点解析与 Boards/hqpcb 默认板。
-package sampleutil
+// Package helper：Samples/sdk/go 共用（板路径等）；端点解析用 hqeda.ResolveEndpoint。
+package helper
 
 import (
 	"fmt"
@@ -7,6 +7,8 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
+
+	hqeda "github.com/Huaqiu-Electronics/hqpcb-go-sdk"
 )
 
 // BoardPresets 示例名 → Boards/hqpcb 文件名。
@@ -24,66 +26,20 @@ var BoardPresets = map[string]string{
 	"diffpair":    "11_diffpair_route.hqpcb",
 }
 
-// Endpoint 解析结果。
-type Endpoint struct {
-	Pipe string
-	Gui  bool
-	Rest []string
+// ResolveEndpoint 委托 SDK；失败时打印并 os.Exit(2)。
+func ResolveEndpoint(argv []string) hqeda.Endpoint {
+	ep, err := hqeda.ResolveEndpoint(argv)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "error:", err)
+		os.Exit(2)
+	}
+	return ep
 }
 
-// ResolvePipe 解析 headless/gui。
+// ResolvePipe 兼容旧样例签名。
 func ResolvePipe(argv []string) (pipe string, gui bool, rest []string) {
 	ep := ResolveEndpoint(argv)
 	return ep.Pipe, ep.Gui, ep.Rest
-}
-
-// ResolveEndpoint 解析端点。
-func ResolveEndpoint(argv []string) Endpoint {
-	ep := Endpoint{}
-	if env := strings.ToLower(strings.TrimSpace(os.Getenv("PCB_IPC_ENDPOINT"))); env != "" {
-		switch env {
-		case "gui", "hqpcb-gui":
-			ep.Gui = true
-		case "headless", "service", "svc", "hqpcb-svc":
-			ep.Gui = false
-		}
-	}
-	for _, a := range argv[1:] {
-		low := strings.ToLower(a)
-		if strings.HasPrefix(a, "grpc") || strings.Contains(a, "://") || strings.HasSuffix(a, ".sock") {
-			fmt.Fprintln(os.Stderr, "error: 不要传 Flight URI / socket")
-			os.Exit(2)
-		}
-		if strings.HasPrefix(low, "--endpoint=") {
-			val := strings.TrimSpace(strings.SplitN(low, "=", 2)[1])
-			switch val {
-			case "gui", "hqpcb-gui":
-				ep.Gui, ep.Pipe = true, ""
-			case "headless", "service", "svc", "hqpcb-svc":
-				ep.Gui, ep.Pipe = false, ""
-			default:
-				fmt.Fprintf(os.Stderr, "error: unknown --endpoint=%s\n", val)
-				os.Exit(2)
-			}
-			continue
-		}
-		switch low {
-		case "gui", "--gui":
-			ep.Gui, ep.Pipe = true, ""
-			continue
-		case "headless", "service", "svc", "--headless", "--service":
-			ep.Gui, ep.Pipe = false, ""
-			continue
-		case "hqpcb-gui":
-			ep.Gui, ep.Pipe = true, a
-			continue
-		case "hqpcb-svc":
-			ep.Gui, ep.Pipe = false, a
-			continue
-		}
-		ep.Rest = append(ep.Rest, a)
-	}
-	return ep
 }
 
 func samplesRoot() string {
@@ -91,7 +47,7 @@ func samplesRoot() string {
 	if !ok {
 		return "."
 	}
-	// sampleutil -> go -> sdk -> Samples
+	// helper -> go -> sdk -> Samples
 	return filepath.Clean(filepath.Join(filepath.Dir(file), "..", "..", ".."))
 }
 
@@ -123,8 +79,8 @@ func BoardPath(arg, preset string) (string, error) {
 	return p, nil
 }
 
-// RequireWsDesign 检查 caps。
-func RequireWsDesign(pipe, role string, workspace, design bool) {
+// CheckEnv 检查对端是否具备 workspace+design 能力。
+func CheckEnv(pipe, role string, workspace, design bool) {
 	if workspace && design {
 		return
 	}
