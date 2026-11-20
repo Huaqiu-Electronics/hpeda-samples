@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"os"
 
-	hqeda "github.com/Huaqiu-Electronics/hqpcb-go-sdk"
 	"github.com/Huaqiu-Electronics/hpeda-samples/sdk/go/helper"
+	hqeda "github.com/Huaqiu-Electronics/hqpcb-go-sdk"
 )
 
 func main() {
 	ep := helper.ResolveEndpoint(os.Args) // 内部为 hqeda.ResolveEndpoint
-	cli := hqeda.NewClientFactory()
-	if err := cli.Connect(ep.Pipe, ep.Gui); err != nil {
+	cli, err := hqeda.NewConnection(ep.Gui)
+	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}

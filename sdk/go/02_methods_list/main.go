@@ -5,14 +5,14 @@ import (
 	"os"
 	"strings"
 
-	hqeda "github.com/Huaqiu-Electronics/hqpcb-go-sdk"
 	"github.com/Huaqiu-Electronics/hpeda-samples/sdk/go/helper"
+	hqeda "github.com/Huaqiu-Electronics/hqpcb-go-sdk"
 )
 
 func main() {
-	pipe, gui, _ := helper.ResolvePipe(os.Args)
-	cli := hqeda.NewClientFactory()
-	if err := cli.Connect(pipe, gui); err != nil {
+	_, gui, _ := helper.ResolvePipe(os.Args)
+	cli, err := hqeda.NewConnection(gui)
+	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}

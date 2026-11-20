@@ -8,13 +8,12 @@ const path = require("path");
 const { resolvePipe, boardPath, checkEnv, loadSdk, sdkJsDir } = require("./helper");
 
 async function main() {
-  const { pipe, gui } = resolvePipe(process.argv);
+  const { gui } = resolvePipe(process.argv);
   const a = boardPath(null, "tracks");
   const b = boardPath(null, "components");
-  const { createClientFactory } = loadSdk();
+  const { createConnection } = loadSdk();
   const { workspaceId } = require(path.join(sdkJsDir(), "hqeda_write.js"));
-  const cli = createClientFactory();
-  await cli.connect(pipe, { gui });
+  const cli = await createConnection(gui);
   if (checkEnv(cli)) {
     cli.disconnect();
     return 1;

@@ -20,11 +20,11 @@ mode lisp
 | `06_open_and_read.lsp` | **打开** `Samples/Boards` 样板板并读取 workspace/层/选择集 |
 | `07_read_selection.lsp` | **交互读取**：画布选中对象后打印 `(entity-get id)` |
 | `08_action_line.lsp` | **交互动作**：两点 click 后 `(action-input 'command "enter")` 提交（勿先 cancel） |
-| `09_action_route.lsp` | **走线**：`(project-open …)` → `route` → `(action-input 'move-line/'click/'dbclick)` → cancel → `zoomall` |
+| `09_action_route.lsp` | **走线**：`(open-and-wait …)` → `route` → `(action-input 'move-line/'click/'dbclick)` → cancel → `zoomall` |
 
 ## 打开 PCB 与读取（推荐流程）
 
-1. 打开样板（`(pcb-resolve …)` 会按 load 白名单解析到仓库内真实 `.hqpcb`，避免 `.app` cwd 下的 0 字节占位）：
+1. 打开样板（`(pcb-resolve …)` 会按 load 白名单解析到仓库内真实 `.hqpcbx`，避免 `.app` cwd 下的 0 字节占位）：
 
 ```text
 lisp-load Samples/Scripts/Lisp/06_open_and_read.lsp
@@ -33,7 +33,7 @@ lisp-load Samples/Scripts/Lisp/06_open_and_read.lsp
 可选覆盖板路径：
 
 ```text
-lisp-eval (define *board* "/ABS/PCB_V5/Samples/Boards/hqpcb/01_tracks_vias.hqpcb")
+lisp-eval (define *board* "/ABS/PCB_V5/Samples/Boards/hqpcbx/01_tracks_vias.hqpcbx")
 lisp-load Samples/Scripts/Lisp/06_open_and_read.lsp
 ```
 
@@ -59,7 +59,7 @@ lisp-load Samples/Scripts/Lisp/09_action_route.lsp
 
 ```text
 lisp-load Samples/Scripts/Lisp/01_hello.lsp
-lisp-eval (pcb-resolve "Samples/Boards/hqpcb/01_tracks_vias.hqpcb")
+lisp-eval (pcb-resolve "Samples/Boards/hqpcbx/01_tracks_vias.hqpcbx")
 ```
 
 语言参考见 [`docs/lisp/language-reference.md`](../../../docs/lisp/language-reference.md)。

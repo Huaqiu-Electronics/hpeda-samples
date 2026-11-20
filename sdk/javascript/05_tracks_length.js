@@ -3,11 +3,10 @@
 const { resolvePipe, boardPath, checkEnv, loadSdk } = require("./helper");
 
 async function main() {
-  const { pipe, gui, rest } = resolvePipe(process.argv);
+  const { gui, rest } = resolvePipe(process.argv);
   const path = boardPath(rest[0], "arc_tracks");
-  const { createClientFactory, api } = loadSdk();
-  const cli = createClientFactory();
-  await cli.connect(pipe, { gui });
+  const { createConnection, api } = loadSdk();
+  const cli = await createConnection(gui);
   if (checkEnv(cli)) {
     cli.disconnect();
     process.exit(1);

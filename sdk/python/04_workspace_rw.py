@@ -4,7 +4,7 @@
 
 用法：
   ./run 04_workspace_rw.py
-  ./run 04_workspace_rw.py headless ../../Boards/hqpcb/04_all_basics.hqpcb
+  ./run 04_workspace_rw.py headless ../../Boards/hqpcbx/04_all_basics.hqpcbx
 """
 
 from __future__ import annotations
@@ -14,14 +14,13 @@ import sys
 from helper import board_path, ensure_sdk_path, check_env, resolve_pipe
 
 ensure_sdk_path()
-from hqeda_client import ClientFactory  # noqa: E402
+from hqeda_client import new_connection  # noqa: E402
 
 
 def main(argv: list[str]) -> int:
-    pipe, gui, rest = resolve_pipe(argv)
+    _, gui, rest = resolve_pipe(argv)
     path = board_path(rest[0] if rest else None, preset="tracks")
-    cli = ClientFactory()
-    cli.connect(pipe, gui=gui)
+    cli = new_connection(gui)
     if (rc := check_env(cli)) is not None:
         cli.disconnect()
         return rc

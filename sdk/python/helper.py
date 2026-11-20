@@ -6,19 +6,19 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-# 示例名 → Boards/hqpcb 默认文件
+# 示例名 → Boards/hqpcbx 默认文件（文本工程）
 BOARD_PRESETS: dict[str, str] = {
-    "tracks": "01_tracks_vias.hqpcb",
-    "arc_tracks": "05_arc_tracks_vias.hqpcb",
-    "components": "02_components_pads.hqpcb",
-    "zones": "03_zones_graphics.hqpcb",
-    "all_basics": "04_all_basics.hqpcb",
-    "keepout": "06_keepout_netclass.hqpcb",
-    "custom_pads": "07_custom_pads_curves.hqpcb",
-    "blind": "08_blind_bottom.hqpcb",
-    "slots": "09_slots_thermals.hqpcb",
-    "outline": "10_outline_arcs.hqpcb",
-    "diffpair": "11_diffpair_route.hqpcb",
+    "tracks": "01_tracks_vias.hqpcbx",
+    "arc_tracks": "05_arc_tracks_vias.hqpcbx",
+    "components": "02_components_pads.hqpcbx",
+    "zones": "03_zones_graphics.hqpcbx",
+    "all_basics": "04_all_basics.hqpcbx",
+    "keepout": "06_keepout_netclass.hqpcbx",
+    "custom_pads": "07_custom_pads_curves.hqpcbx",
+    "blind": "08_blind_bottom.hqpcbx",
+    "slots": "09_slots_thermals.hqpcbx",
+    "outline": "10_outline_arcs.hqpcbx",
+    "diffpair": "11_diffpair_route.hqpcbx",
 }
 
 
@@ -27,9 +27,13 @@ def samples_root() -> Path:
     return Path(__file__).resolve().parents[2]
 
 
-def boards_hqpcb_dir() -> Path:
-    """返回 Samples/Boards/hqpcb。"""
-    return samples_root() / "Boards" / "hqpcb"
+def boards_hqpcbx_dir() -> Path:
+    """返回 Samples/Boards/hqpcbx。"""
+    return samples_root() / "Boards" / "hqpcbx"
+
+
+# 兼容旧名
+boards_hqpcb_dir = boards_hqpcbx_dir
 
 
 def sdk_python_dir() -> Path:
@@ -58,15 +62,15 @@ def resolve_pipe(argv: list[str]):
 
 
 def board_path(arg: str | None, *, preset: str) -> Path:
-    """解析板路径：显式参数优先，否则 Boards/hqpcb 预设。"""
+    """解析板路径：显式参数优先，否则 Boards/hqpcbx 预设。"""
     if arg:
         path = Path(arg).expanduser().resolve()
     else:
         name = BOARD_PRESETS.get(preset, preset)
-        path = (boards_hqpcb_dir() / name).resolve()
+        path = (boards_hqpcbx_dir() / name).resolve()
     if not path.is_file():
         print(f"error: board not found: {path}", file=sys.stderr)
-        print("hint: convert via Samples/Boards/convert_to_hqpcb.sh", file=sys.stderr)
+        print("hint: convert via Samples/Boards/convert_to_hqpcb.sh --hqpcbx-only", file=sys.stderr)
         raise SystemExit(1)
     return path
 

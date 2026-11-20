@@ -3,12 +3,11 @@
 const { resolvePipe, loadSdk } = require("./helper");
 
 async function main() {
-  const { pipe, gui, rest } = resolvePipe(process.argv);
+  const { gui, rest } = resolvePipe(process.argv);
   const key = rest[0] || "sample.theme";
   const value = rest[1] || "dark";
-  const { createClientFactory } = loadSdk();
-  const cli = createClientFactory();
-  await cli.connect(pipe, { gui });
+  const { createConnection } = loadSdk();
+  const cli = await createConnection(gui);
   console.log(String(await cli.configSet(key, value)).trimEnd());
   const got = await cli.configGet(key);
   console.log(key + "=" + got);

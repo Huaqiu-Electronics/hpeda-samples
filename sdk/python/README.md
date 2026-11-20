@@ -1,6 +1,6 @@
 # Python SDK 示例
 
-依赖仓库 `sdk/python/.venv`。默认打开 `Samples/Boards/hqpcb` 对应板。
+依赖仓库 `sdk/python/.venv`。默认打开 `Samples/Boards/hqpcbx` 对应板。
 
 ```bash
 cd Samples/sdk/python
@@ -8,7 +8,7 @@ cd Samples/sdk/python
 ./run 06_nets_vias.py
 ./run 11_design_write.py          # 设计租约写
 ./run 12_workspace_write.py       # 工作区 open/switch/close
-./run 07_footprints_pads.py headless ../../Boards/hqpcb/08_blind_bottom.hqpcb
+./run 07_footprints_pads.py headless ../../Boards/hqpcbx/08_blind_bottom.hqpcbx
 ```
 
 端点：`hqeda_endpoint.resolve_endpoint`（样例经 `helper.resolve_pipe`）。  

@@ -4,14 +4,12 @@
 //
 //	go-load Samples/Scripts/Go/09_action_route
 //
-// 连接：NewClientFactory().Connect（宿主桥）；开板：cli.WsOpen（与 SDK 同名）。
+// 连接：NewConnection（宿主桥）；开板：cli.Open（与 SDK 同名）。
 package main
 
 import (
-	"fmt"
 	"os"
 	"strconv"
-	"strings"
 
 	hqeda "github.com/Huaqiu-Electronics/hqpcb-go-sdk"
 )
@@ -28,89 +26,65 @@ func envInt(key string, def int) int {
 	return n
 }
 
-func resolveBoard(cli *hqeda.ClientFactory) (string, error) {
-	if p := os.Getenv("PCB_BOARD"); p != "" {
-		return p, nil
-	}
-	rels := []string{
-		"Samples/Boards/hqpcb/01_tracks_vias.hqpcb",
-		"Boards/hqpcb/01_tracks_vias.hqpcb",
-	}
-	for _, rel := range rels {
-		out, err := hqeda.CmdletLine("path.resolve", hqeda.KvToken("path", rel))
-		if err != nil {
-			continue
-		}
-		out = strings.TrimSpace(out)
-		if out != "" {
-			return out, nil
-		}
-	}
-	return "", fmt.Errorf("board sample not found; set PCB_BOARD to an absolute .hqpcb path")
-}
-
 func main() {
 	stepMs := envInt("PCB_STEP_MS", 60)
 	afterStart := envInt("PCB_AFTER_START_MS", 200)
 
-	cli := hqeda.NewClientFactory()
-	if err := cli.Connect("", true); err != nil {
-		hqeda.Log(err.Error())
-		os.Exit(1)
-	}
-
-	pause := func() {
-		_, _ = hqeda.Cmdlet(fmt.Sprintf("sleep.ms %d", stepMs))
-	}
-
-	board, err := resolveBoard(cli)
+	cli, err := hqeda.NewConnection(true)
 	if err != nil {
 		hqeda.Log(err.Error())
 		os.Exit(1)
 	}
-	hqeda.Log(";; open " + board)
-	if _, err := cli.WsOpen(board); err != nil {
-		hqeda.Log(err.Error())
-		os.Exit(1)
-	}
-	pause()
-	_, _ = hqeda.Cmdlet("rasternext.wait_open_follow 30000")
-	pause()
-	_, _ = hqeda.Cmdlet("zoomall")
-	pause()
+	defer cli.Disconnect()
 
-	cur, _ := hqeda.Cmdlet("action.current")
-	hqeda.Log(";; action-current (before) = " + cur)
-	_, _ = hqeda.Cmdlet("layer_schema.select Conductor1")
-	pause()
-	if _, err := hqeda.Cmdlet("action.start route"); err != nil {
+	board := os.Getenv("PCB_BOARD")
+	if board == "" {
+		board, err = cli.ResolveFile("Samples/Boards/hqpcbx/01_tracks_vias.hqpcbx")
+		if err != nil {
+			hqeda.Log(err.Error())
+			os.Exit(1)
+		}
+	}
+	hqeda.Log(";; open " + board)
+	if _, err := cli.OpenAndWait(board, 30000); err != nil {
 		hqeda.Log(err.Error())
 		os.Exit(1)
 	}
-	pause()
-	cur, _ = hqeda.Cmdlet("action.current")
+	_ = cli.SleepMs(stepMs)
+	_ = hqeda.ZoomAll()
+	_ = cli.SleepMs(stepMs)
+
+	cur, _ := hqeda.CurrentAction()
+	hqeda.Log(";; action-current (before) = " + cur)
+	_ = cli.SelectLayer("Conductor1")
+	_ = cli.SleepMs(stepMs)
+	if err := hqeda.StartAction("route"); err != nil {
+		hqeda.Log(err.Error())
+		os.Exit(1)
+	}
+	_ = cli.SleepMs(stepMs)
+	cur, _ = hqeda.CurrentAction()
 	hqeda.Log(";; action-current (after start) = " + cur)
 
-	_, _ = hqeda.Cmdlet("action.input move-line 6 -6 18 -15 8")
-	_, _ = hqeda.Cmdlet("action.input move 18 -15")
-	_, _ = hqeda.Cmdlet(fmt.Sprintf("sleep.ms %d", 80))
-	_, _ = hqeda.Cmdlet("action.input click 18 -15")
-	pause()
-	_, _ = hqeda.Cmdlet(fmt.Sprintf("sleep.ms %d", afterStart))
+	_ = hqeda.MouseMoveEx(6, -6, 18, -15, 8)
+	_ = cli.SleepMs(80)
+	_ = hqeda.MouseClick(18, -15)
+	_ = cli.SleepMs(stepMs)
+	_ = cli.SleepMs(afterStart)
 
-	_, _ = hqeda.Cmdlet("action.input move-line 18 -15 28 -10 10")
-	_, _ = hqeda.Cmdlet("action.input click 28 -10")
-	pause()
+	_ = hqeda.MouseMoveEx(18, -15, 28, -10, 10)
+	_ = hqeda.MouseClick(28, -10)
+	_ = cli.SleepMs(stepMs)
 
-	_, _ = hqeda.Cmdlet("action.input dbclick 28 -10")
-	pause()
+	_ = hqeda.MouseDBClick(28, -10)
+	_ = cli.SleepMs(stepMs)
 
-	_, _ = hqeda.Cmdlet("action.cancel")
-	pause()
+	_ = hqeda.CancelAction()
+	_ = cli.SleepMs(stepMs)
 
-	cur, _ = hqeda.Cmdlet("action.current")
+	cur, _ = hqeda.CurrentAction()
 	hqeda.Log(";; action-current (after via+cancel) = " + cur)
-	_, _ = hqeda.Cmdlet("zoomall")
-	pause()
+	_ = hqeda.ZoomAll()
+	_ = cli.SleepMs(stepMs)
 	hqeda.Log(";; done: routed via (18,-15)→(28,-10) + dblclick via + cancel + zoomall")
 }

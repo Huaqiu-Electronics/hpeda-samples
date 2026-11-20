@@ -3,10 +3,9 @@
 const { resolvePipe, loadSdk } = require("./helper");
 
 async function main() {
-  const { pipe, gui } = resolvePipe(process.argv);
-  const { createClientFactory } = loadSdk();
-  const cli = createClientFactory();
-  await cli.connect(pipe, { gui });
+  const { gui } = resolvePipe(process.argv);
+  const { createConnection  } = loadSdk();
+  const cli = await createConnection(gui);
   const catalog = await cli.methodsList();
   console.log("# pipe=" + cli.pipe + " role=" + cli.peerRole);
   console.log(String(catalog).trimEnd());

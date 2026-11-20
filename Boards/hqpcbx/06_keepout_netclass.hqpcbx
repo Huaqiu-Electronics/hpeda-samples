@@ -1,0 +1,613 @@
+file:hq-pcbx|version:1.0|encoding:utf-8mb4
+begin:area_figure_contour|id:INTEGER:-1|area_figure_id:INTEGER:0|contour_type:INTEGER:0|seq_no:INTEGER:0
+9288674231451680|1688849860263967|1
+9288674231451687|1688849860263974|1
+9288674231451694|1688849860263981|1
+9288674231451701|1688849860263988|1
+end:area_figure_contour
+begin:area_figure|id:INTEGER:-1|owner_type:INTEGER:0|obj_type:INTEGER:0|figure_type:INTEGER:0|figure_name:TEXT:''|geometry_type:INTEGER:0|layer_id:INTEGER:0|source_shape_type:INTEGER:0|usage_raw:TEXT:''|origin_x_mm:INTEGER:0|origin_y_mm:INTEGER:0|is_filled:INTEGER:0|is_locked:INTEGER:0|is_highlighted:INTEGER:0|width_mm:INTEGER:0|height_mm:INTEGER:0|diameter_mm:INTEGER:0|corner_radius_mm:INTEGER:0|rotation_deg:REAL:0.0|polygon_side_count:INTEGER:0|dash_style:TEXT:''|corner_usage:TEXT:''|raw_geom_json:TEXT:''
+1688849860263967||2|2|kicad_keepout_F.Cu|4||3|F.Cu|34000000|-24000000|1|||16000000|16000000|||||||{"keepoutRules":"tracks=not_allowed;vias=not_allowed;pads=allowed;copperpour=not_allowed;footprints=allowed"}
+1688849860263974||2|2|kicad_keepout_B.Cu|4|1|3|B.Cu|34000000|-24000000|1|||16000000|16000000|||||||{"keepoutRules":"tracks=not_allowed;vias=not_allowed;pads=allowed;copperpour=not_allowed;footprints=allowed"}
+1688849860263981||2|2|kicad_keepout_F.Cu|4||3|F.Cu|5000000|-38000000|1|||15000000|6000000|||||||{"keepoutRules":"tracks=allowed;vias=not_allowed;pads=not_allowed;copperpour=not_allowed;footprints=not_allowed"}
+1688849860263988||2|3|kicad_board_outline_0|4|3000|3|Edge.Cuts||-40000000||||55000000|40000000
+end:area_figure
+begin:area_figure_segment|id:INTEGER:-1|contour_id:INTEGER:0|seq_no:INTEGER:0|segment_type:INTEGER:0|x1:INTEGER:0|y1:INTEGER:0|x2:INTEGER:0|y2:INTEGER:0|cx:INTEGER:0|cy:INTEGER:0|radius:INTEGER:0|clockwise:INTEGER:0
+9570149208162337|9288674231451680||1|34000000|-8000000|50000000|-8000000
+9570149208162338|9288674231451680|1|1|50000000|-8000000|50000000|-24000000
+9570149208162339|9288674231451680|2|1|50000000|-24000000|34000000|-24000000
+9570149208162340|9288674231451680|3|1|34000000|-24000000|34000000|-8000000
+9570149208162344|9288674231451687||1|34000000|-8000000|50000000|-8000000
+9570149208162345|9288674231451687|1|1|50000000|-8000000|50000000|-24000000
+9570149208162346|9288674231451687|2|1|50000000|-24000000|34000000|-24000000
+9570149208162347|9288674231451687|3|1|34000000|-24000000|34000000|-8000000
+9570149208162351|9288674231451694||1|5000000|-32000000|20000000|-32000000
+9570149208162352|9288674231451694|1|1|20000000|-32000000|20000000|-38000000
+9570149208162353|9288674231451694|2|1|20000000|-38000000|5000000|-38000000
+9570149208162354|9288674231451694|3|1|5000000|-38000000|5000000|-32000000
+9570149208162358|9288674231451701||1|||55000000
+9570149208162359|9288674231451701|1|1|55000000||55000000|-40000000
+9570149208162360|9288674231451701|2|1|55000000|-40000000||-40000000
+9570149208162361|9288674231451701|3|1||-40000000
+end:area_figure_segment
+begin:component_attribute|id:INTEGER:-1|attrScope:TEXT:''|attrName:TEXT:''|attrValue:TEXT:''|rawPair:TEXT:''
+end:component_attribute
+begin:component_def|id:INTEGER:-1|name:TEXT:''|rx:REAL:0.0|ry:REAL:0.0|rz:REAL:0.0|dx:REAL:0.0|dy:REAL:0.0|dz:REAL:0.0|standoff:REAL:0.0|has_standoff:INTEGER:0|seatZ:REAL:0.0|step:BLOB:\\b 
+end:component_def
+begin:component_instance|id:INTEGER:-1|refdes:TEXT:''|instance_name:TEXT:''|package_name:TEXT:''|symbol_def_id:INTEGER:0|com_def_id:INTEGER:0|x_mm:INTEGER:0|y_mm:INTEGER:0|angle_deg:REAL:0.0|is_mirrored:INTEGER:0|layer_id:INTEGER:0|placed_flag:INTEGER:0|highlight_flag:INTEGER:0|custom_attr_raw:TEXT:''
+end:component_instance
+begin:component_pin|id:INTEGER:-1|symbol_pin_def_id:INTEGER:0|net_id:INTEGER:0|abs_x_mm:INTEGER:0|abs_y_mm:INTEGER:0|layer_from_id:INTEGER:0|layer_to_id:INTEGER:0|is_mechanical:INTEGER:0|is_test_point:INTEGER:0
+end:component_pin
+begin:connectivity_edge|id:INTEGER:-1|layerId:INTEGER:0|srcType:INTEGER:0|dstType:INTEGER:0|contactType:INTEGER:0|xMm:TEXT:''|yMm:TEXT:''|rawSource:TEXT:''
+end:connectivity_edge
+begin:constraint_diff_pair|id:INTEGER:-1|name:TEXT:''|member:TEXT:''|diffnetspace:TEXT:''|samenetspace:TEXT:''|difftrackwidthrule:TEXT:''|defaultvia:TEXT:''|maxuncoupledlength:REAL:0.0|statictolerance:REAL:0.0|dynamicmaxlength:REAL:0.0|dynamictolerance:REAL:0.0
+1|USB|4 3|RF-0.15|RF-0.15|DP0.2g0.2|Via0.7x0.35
+end:constraint_diff_pair
+begin:constraint_match_group|id:INTEGER:-1|name:TEXT:''|member:TEXT:''|relativedelay:REAL:0.0|baseline:INTEGER:0
+end:constraint_match_group
+begin:constraint_net_class_class|id:INTEGER:-1|netclass1:TEXT:''|netclass2:TEXT:''|value:TEXT:''
+1|Default|Default|RF-0.15
+2|Default|Power|RF-0.25
+3|Default|USB_Diff|RF-0.15
+4|Power|Power|RF-0.25
+5|Power|USB_Diff|RF-0.25
+6|USB_Diff|USB_Diff|RF-0.15
+end:constraint_net_class_class
+begin:constraint_net_class|id:INTEGER:-1|name:TEXT:''|member:TEXT:''|diffnetspace:TEXT:''|samenetspace:TEXT:''|widthrule:TEXT:''|defaultvia:TEXT:''
+1|Default|1 5|RF-0.15|RF-0.15|Wid0.2|Via0.7x0.35
+2|Power|2|RF-0.25|RF-0.25|Wid0.5|Via0.9x0.45
+3|USB_Diff|3 4|RF-0.15|RF-0.15|Wid0.2|Via0.7x0.35
+end:constraint_net_class
+begin:constraint_net|id:INTEGER:-1|netname:TEXT:''|diffnetspace:TEXT:''|samenetspace:TEXT:''|widthrule:TEXT:''|defaultvia:TEXT:''|type:TEXT:''|netclass:TEXT:''|diffpair:TEXT:''|netgroup:TEXT:''|matchgroup:TEXT:''|voltage:REAL:0.0|requiredtestpoint:REAL:0.0|backdrillmaxpthstub:REAL:0.0|rats:INTEGER:0|topology:TEXT:''|maxstublength:TEXT:''|viacount:TEXT:''|targetimpedence:REAL:0.0|pinpairsmode:REAL:0.0|pin1delay:REAL:0.0|pin2delay:REAL:0.0|minpropdelay:REAL:0.0|maxpropdelay:REAL:0.0|pinpairminpropdelay:REAL:0.0|pinpairmaxpropdelay:REAL:0.0|mintotaletchlength:REAL:0.0|maxtotaletchlength:REAL:0.0|color:INTEGER:0|colorvalid:INTEGER:0
+1|GND|RF-0.15|RF-0.15||||Default
+2|PWR_5V|RF-0.15|RF-0.15||||Power
+3|USB_DN|RF-0.15|RF-0.15||||USB_Diff|USB
+4|USB_DP|RF-0.15|RF-0.15||||USB_Diff|USB
+5|VCC|RF-0.15|RF-0.15||||Default
+end:constraint_net
+begin:constraint_net_group|id:INTEGER:-1|name:TEXT:''|member:TEXT:''|diffnetspace:TEXT:''|samenetspace:TEXT:''|widthrule:TEXT:''|defaultvia:TEXT:''|type:TEXT:''|voltage:REAL:0.0|requiredtestpoint:REAL:0.0|backdrillmaxpthstub:REAL:0.0|topology:REAL:0.0|maxstublength:REAL:0.0|viacount:REAL:0.0|targetimpedence:REAL:0.0|pinpairsmode:REAL:0.0|pin1delay:REAL:0.0|pin2delay:REAL:0.0|minpropdelay:REAL:0.0|maxpropdelay:REAL:0.0|mintotaletchlength:REAL:0.0|maxtotaletchlength:REAL:0.0
+end:constraint_net_group
+begin:constraint_pin_pair|id:INTEGER:-1|pinpair:TEXT:''|netid:INTEGER:0|minpropdelay:REAL:0.0|maxpropdelay:REAL:0.0
+end:constraint_pin_pair
+begin:copper_pour_contour|id:INTEGER:-1|region_id:INTEGER:0|contour_type:INTEGER:0|seq_no:INTEGER:0|is_closed:INTEGER:0|ring_data:BLOB:\\b 
+6192449487634435|6755399441055746|1||1
+6192449487634442|6755399441055753|1||1
+end:copper_pour_contour
+begin:copper_pour|id:INTEGER:-1|owner_type:INTEGER:0|obj_type:INTEGER:0|shape_type:INTEGER:0|figure_name:TEXT:''|geometry_type:INTEGER:0|layer_id:INTEGER:0|is_filled:INTEGER:0|width_mm:INTEGER:0|height_mm:INTEGER:0|diameter_mm:INTEGER:0|corner_radius_mm:INTEGER:0|polygon_side_count:INTEGER:0|raw_geom_json:TEXT:''|net_id:INTEGER:0|is_locked:INTEGER:0|is_highlighted:INTEGER:0|zone_row_id:INTEGER:0|island_index:INTEGER:0|min_x:INTEGER:0|min_y:INTEGER:0|max_x:INTEGER:0|max_y:INTEGER:0|is_teardrop:INTEGER:0
+5910974510923835||2|1||4|1|1|25000000|16000000||||{"base":{"holes":[],"outline":{"points":[{"x":"28000000","y":"-8000000"},{"x":"3000000","y":"-8000000"},{"x":"3000000","y":"-24000000"},{"x":"28000000","y":"-24000000"}],"segments":[{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"3000000","y":"-8000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"28000000","y":"-8000000"},"start_angle":0,"sweep_angle":0},{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"3000000","y":"-24000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"3000000","y":"-8000000"},"start_angle":0,"sweep_angle":0},{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"28000000","y":"-24000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"3000000","y":"-24000000"},"start_angle":0,"sweep_angle":0},{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"28000000","y":"-8000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"28000000","y":"-24000000"},"start_angle":0,"sweep_angle":0}]}},"fill_diagnostic":"","fill_mode":1,"fill_options_json":"{\\"clearance\\":300000,\\"island_policy\\":\\"remove_unconnected\\",\\"min_width_mm\\":0.25,\\"sharp_radius_mm\\":0,\\"source_base_rule\\":\\"kicad:nonzero:v1\\",\\"source_kicad\\":{\\"connect_pads\\":[\\"connect_pads\\",\\"yes\\",[\\"clearance\\",\\"0.3\\"]],\\"file_version\\":20240108,\\"fill\\":[\\"fill\\",\\"yes\\",[\\"thermal_gap\\",\\"0.4\\"],[\\"thermal_bridge_width\\",\\"0.3\\"]],\\"hatch\\":[\\"hatch\\",\\"edge\\",\\"0.5\\"],\\"min_thickness\\":[\\"min_thickness\\",\\"0.25\\"]},\\"thermal\\":{\\"gap_mm\\":0.4,\\"smd\\":{\\"max\\":4,\\"min\\":0,\\"pattern\\":\\"full\\"},\\"through\\":{\\"max\\":4,\\"min\\":0,\\"pattern\\":\\"full\\"},\\"via\\":{\\"pattern\\":\\"full\\"},\\"width_mm\\":0.3}}","fill_state":2,"last_fill_revision":"1","netId":"1","options_hash":"574063f667e38bdf804e0df43e64224234e52ff2ca6565a00e73a8d3ede02c2e","pour_order":0,"priority":0,"revision":"1","rule_keys":"","schema":"pcb.copper.base.v1","update_mode":0}|1|||5910974510923835||3000000|-24000000|28000000|-8000000
+end:copper_pour
+begin:copper_pour_geometry|id:INTEGER:-1|pour_id:INTEGER:0|geom_role:TEXT:''|source_rev:INTEGER:0|generation:INTEGER:0|fill_state:INTEGER:0|options_hash:TEXT:''|diagnostic:TEXT:''|origin:TEXT:''
+6473924464345089|5910974510923835|BASE|1||1|574063f667e38bdf804e0df43e64224234e52ff2ca6565a00e73a8d3ede02c2e||import: normalized DTO
+6473924464345096|5910974510923835|ACTUAL|1|1|2|574063f667e38bdf804e0df43e64224234e52ff2ca6565a00e73a8d3ede02c2e||import: normalized DTO
+end:copper_pour_geometry
+begin:copper_pour_region|id:INTEGER:-1|seq_no:INTEGER:0|geometry_id:INTEGER:0
+6755399441055746||6473924464345089
+6755399441055753||6473924464345096
+end:copper_pour_region
+begin:copper_pour_segment|id:INTEGER:-1|contour_id:INTEGER:0|seq_no:INTEGER:0|segment_type:INTEGER:0|x1:INTEGER:0|y1:INTEGER:0|x2:INTEGER:0|y2:INTEGER:0|cx:INTEGER:0|cy:INTEGER:0|radius:INTEGER:0|radius_y:INTEGER:0|start_angle_deg:REAL:0.0|sweep_angle_deg:REAL:0.0|clockwise:INTEGER:0|extra_json:TEXT:''
+7036874417766404|6192449487634435||1|28000000|-8000000|3000000|-8000000
+7036874417766405|6192449487634435|1|1|3000000|-8000000|3000000|-24000000
+7036874417766406|6192449487634435|2|1|3000000|-24000000|28000000|-24000000
+7036874417766407|6192449487634435|3|1|28000000|-24000000|28000000|-8000000
+7036874417766411|6192449487634442||1|3200000|-8200000|3200000|-23800000
+7036874417766412|6192449487634442|1|1|3200000|-23800000|27800000|-23800000
+7036874417766413|6192449487634442|2|1|27800000|-23800000|27800000|-8200000
+7036874417766414|6192449487634442|3|1|27800000|-8200000|3200000|-8200000
+end:copper_pour_segment
+begin:definitions|id:TEXT:''|kind:TEXT:''|revision:INTEGER:0|payload_version:INTEGER:0|payload_codec:TEXT:''|data_blob:BLOB:\\b 
+end:definitions
+begin:design|id:INTEGER:-1|designName:TEXT:''|unitName:TEXT:''|sourceFile:TEXT:''
+end:design
+begin:designrule_bb_via|id:INTEGER:-1|name:TEXT:''|padstack_name:TEXT:''|start:INTEGER:0|end:INTEGER:0
+end:designrule_bb_via
+begin:designrule_diff_track_width|id:INTEGER:-1|layer:INTEGER:0|widthrulename:TEXT:''|defaultwidth:REAL:0.0|minwidth:REAL:0.0|maxwidth:REAL:0.0|neckwidth:REAL:0.0|defaultgap:REAL:0.0|mingap:REAL:0.0|charz:REAL:0.0|neckgap:REAL:0.0
+1||DP0.2g0.2|0.20000000000000001|0.20000000000000001|||0.20000000000000001|0.20000000000000001||0.20000000000000001
+2|1|DP0.2g0.2|0.20000000000000001|0.20000000000000001|||0.20000000000000001|0.20000000000000001||0.20000000000000001
+end:designrule_diff_track_width
+begin:designrule_space|id:INTEGER:-1|object1:INTEGER:0|object2:INTEGER:0|space:REAL:0.0|layer:INTEGER:0|rulename:TEXT:''
+1|1|1|0.14999999999999999||RF-0.15
+2|1|2|0.14999999999999999||RF-0.15
+3|1|3|0.14999999999999999||RF-0.15
+4|1|4|0.14999999999999999||RF-0.15
+5|1|5|0.14999999999999999||RF-0.15
+6|1|6|0.14999999999999999||RF-0.15
+7|1|7|0.14999999999999999||RF-0.15
+8|1|8|0.14999999999999999||RF-0.15
+9|1|9|0.14999999999999999||RF-0.15
+10|2|2|0.14999999999999999||RF-0.15
+11|2|3|0.14999999999999999||RF-0.15
+12|2|4|0.14999999999999999||RF-0.15
+13|2|5|0.14999999999999999||RF-0.15
+14|2|6|0.14999999999999999||RF-0.15
+15|2|7|0.14999999999999999||RF-0.15
+16|2|8|0.14999999999999999||RF-0.15
+17|2|9|0.14999999999999999||RF-0.15
+18|3|3|0.14999999999999999||RF-0.15
+19|3|4|0.14999999999999999||RF-0.15
+20|3|5|0.14999999999999999||RF-0.15
+21|3|6|0.14999999999999999||RF-0.15
+22|3|7|0.14999999999999999||RF-0.15
+23|3|8|0.14999999999999999||RF-0.15
+24|3|9|0.14999999999999999||RF-0.15
+25|4|4|0.14999999999999999||RF-0.15
+26|4|5|0.14999999999999999||RF-0.15
+27|4|6|0.14999999999999999||RF-0.15
+28|4|7|0.14999999999999999||RF-0.15
+29|4|8|0.14999999999999999||RF-0.15
+30|4|9|0.14999999999999999||RF-0.15
+31|5|5|0.14999999999999999||RF-0.15
+32|5|6|0.14999999999999999||RF-0.15
+33|5|7|0.14999999999999999||RF-0.15
+34|5|8|0.14999999999999999||RF-0.15
+35|5|9|0.14999999999999999||RF-0.15
+36|6|6|0.14999999999999999||RF-0.15
+37|6|7|0.14999999999999999||RF-0.15
+38|6|8|0.14999999999999999||RF-0.15
+39|6|9|0.14999999999999999||RF-0.15
+40|7|7|0.14999999999999999||RF-0.15
+41|7|8|0.14999999999999999||RF-0.15
+42|7|9|0.14999999999999999||RF-0.15
+43|8|8|0.14999999999999999||RF-0.15
+44|8|9|0.14999999999999999||RF-0.15
+45|9|9|0.14999999999999999||RF-0.15
+46|1|1|0.14999999999999999|1|RF-0.15
+47|1|2|0.14999999999999999|1|RF-0.15
+48|1|3|0.14999999999999999|1|RF-0.15
+49|1|4|0.14999999999999999|1|RF-0.15
+50|1|5|0.14999999999999999|1|RF-0.15
+51|1|6|0.14999999999999999|1|RF-0.15
+52|1|7|0.14999999999999999|1|RF-0.15
+53|1|8|0.14999999999999999|1|RF-0.15
+54|1|9|0.14999999999999999|1|RF-0.15
+55|2|2|0.14999999999999999|1|RF-0.15
+56|2|3|0.14999999999999999|1|RF-0.15
+57|2|4|0.14999999999999999|1|RF-0.15
+58|2|5|0.14999999999999999|1|RF-0.15
+59|2|6|0.14999999999999999|1|RF-0.15
+60|2|7|0.14999999999999999|1|RF-0.15
+61|2|8|0.14999999999999999|1|RF-0.15
+62|2|9|0.14999999999999999|1|RF-0.15
+63|3|3|0.14999999999999999|1|RF-0.15
+64|3|4|0.14999999999999999|1|RF-0.15
+65|3|5|0.14999999999999999|1|RF-0.15
+66|3|6|0.14999999999999999|1|RF-0.15
+67|3|7|0.14999999999999999|1|RF-0.15
+68|3|8|0.14999999999999999|1|RF-0.15
+69|3|9|0.14999999999999999|1|RF-0.15
+70|4|4|0.14999999999999999|1|RF-0.15
+71|4|5|0.14999999999999999|1|RF-0.15
+72|4|6|0.14999999999999999|1|RF-0.15
+73|4|7|0.14999999999999999|1|RF-0.15
+74|4|8|0.14999999999999999|1|RF-0.15
+75|4|9|0.14999999999999999|1|RF-0.15
+76|5|5|0.14999999999999999|1|RF-0.15
+77|5|6|0.14999999999999999|1|RF-0.15
+78|5|7|0.14999999999999999|1|RF-0.15
+79|5|8|0.14999999999999999|1|RF-0.15
+80|5|9|0.14999999999999999|1|RF-0.15
+81|6|6|0.14999999999999999|1|RF-0.15
+82|6|7|0.14999999999999999|1|RF-0.15
+83|6|8|0.14999999999999999|1|RF-0.15
+84|6|9|0.14999999999999999|1|RF-0.15
+85|7|7|0.14999999999999999|1|RF-0.15
+86|7|8|0.14999999999999999|1|RF-0.15
+87|7|9|0.14999999999999999|1|RF-0.15
+88|8|8|0.14999999999999999|1|RF-0.15
+89|8|9|0.14999999999999999|1|RF-0.15
+90|9|9|0.14999999999999999|1|RF-0.15
+91|1|1|0.25||RF-0.25
+92|1|2|0.25||RF-0.25
+93|1|3|0.25||RF-0.25
+94|1|4|0.25||RF-0.25
+95|1|5|0.25||RF-0.25
+96|1|6|0.25||RF-0.25
+97|1|7|0.25||RF-0.25
+98|1|8|0.25||RF-0.25
+99|1|9|0.25||RF-0.25
+100|2|2|0.25||RF-0.25
+101|2|3|0.25||RF-0.25
+102|2|4|0.25||RF-0.25
+103|2|5|0.25||RF-0.25
+104|2|6|0.25||RF-0.25
+105|2|7|0.25||RF-0.25
+106|2|8|0.25||RF-0.25
+107|2|9|0.25||RF-0.25
+108|3|3|0.25||RF-0.25
+109|3|4|0.25||RF-0.25
+110|3|5|0.25||RF-0.25
+111|3|6|0.25||RF-0.25
+112|3|7|0.25||RF-0.25
+113|3|8|0.25||RF-0.25
+114|3|9|0.25||RF-0.25
+115|4|4|0.25||RF-0.25
+116|4|5|0.25||RF-0.25
+117|4|6|0.25||RF-0.25
+118|4|7|0.25||RF-0.25
+119|4|8|0.25||RF-0.25
+120|4|9|0.25||RF-0.25
+121|5|5|0.25||RF-0.25
+122|5|6|0.25||RF-0.25
+123|5|7|0.25||RF-0.25
+124|5|8|0.25||RF-0.25
+125|5|9|0.25||RF-0.25
+126|6|6|0.25||RF-0.25
+127|6|7|0.25||RF-0.25
+128|6|8|0.25||RF-0.25
+129|6|9|0.25||RF-0.25
+130|7|7|0.25||RF-0.25
+131|7|8|0.25||RF-0.25
+132|7|9|0.25||RF-0.25
+133|8|8|0.25||RF-0.25
+134|8|9|0.25||RF-0.25
+135|9|9|0.25||RF-0.25
+136|1|1|0.25|1|RF-0.25
+137|1|2|0.25|1|RF-0.25
+138|1|3|0.25|1|RF-0.25
+139|1|4|0.25|1|RF-0.25
+140|1|5|0.25|1|RF-0.25
+141|1|6|0.25|1|RF-0.25
+142|1|7|0.25|1|RF-0.25
+143|1|8|0.25|1|RF-0.25
+144|1|9|0.25|1|RF-0.25
+145|2|2|0.25|1|RF-0.25
+146|2|3|0.25|1|RF-0.25
+147|2|4|0.25|1|RF-0.25
+148|2|5|0.25|1|RF-0.25
+149|2|6|0.25|1|RF-0.25
+150|2|7|0.25|1|RF-0.25
+151|2|8|0.25|1|RF-0.25
+152|2|9|0.25|1|RF-0.25
+153|3|3|0.25|1|RF-0.25
+154|3|4|0.25|1|RF-0.25
+155|3|5|0.25|1|RF-0.25
+156|3|6|0.25|1|RF-0.25
+157|3|7|0.25|1|RF-0.25
+158|3|8|0.25|1|RF-0.25
+159|3|9|0.25|1|RF-0.25
+160|4|4|0.25|1|RF-0.25
+161|4|5|0.25|1|RF-0.25
+162|4|6|0.25|1|RF-0.25
+163|4|7|0.25|1|RF-0.25
+164|4|8|0.25|1|RF-0.25
+165|4|9|0.25|1|RF-0.25
+166|5|5|0.25|1|RF-0.25
+167|5|6|0.25|1|RF-0.25
+168|5|7|0.25|1|RF-0.25
+169|5|8|0.25|1|RF-0.25
+170|5|9|0.25|1|RF-0.25
+171|6|6|0.25|1|RF-0.25
+172|6|7|0.25|1|RF-0.25
+173|6|8|0.25|1|RF-0.25
+174|6|9|0.25|1|RF-0.25
+175|7|7|0.25|1|RF-0.25
+176|7|8|0.25|1|RF-0.25
+177|7|9|0.25|1|RF-0.25
+178|8|8|0.25|1|RF-0.25
+179|8|9|0.25|1|RF-0.25
+180|9|9|0.25|1|RF-0.25
+181|11|1|0.5||EdgeClr0.5
+182|11|2|0.5||EdgeClr0.5
+183|11|6|0.5||EdgeClr0.5
+184|11|7|0.5||EdgeClr0.5
+185|11|3|0.5||EdgeClr0.5
+186|11|4|0.5||EdgeClr0.5
+187|11|5|0.5||EdgeClr0.5
+188|11|10|0.5||EdgeClr0.5
+189|11|1|0.5|1|EdgeClr0.5
+190|11|2|0.5|1|EdgeClr0.5
+191|11|6|0.5|1|EdgeClr0.5
+192|11|7|0.5|1|EdgeClr0.5
+193|11|3|0.5|1|EdgeClr0.5
+194|11|4|0.5|1|EdgeClr0.5
+195|11|5|0.5|1|EdgeClr0.5
+196|11|10|0.5|1|EdgeClr0.5
+end:designrule_space
+begin:designrule_track_width|id:INTEGER:-1|layer:INTEGER:0|widthrulename:TEXT:''|defaultwidth:REAL:0.0|minwidth:REAL:0.0|maxwidth:REAL:0.0|neckwidth:REAL:0.0
+1||Wid0.5|0.5|0.5
+2|1|Wid0.5|0.5|0.5
+3||Wid0.2|0.20000000000000001|0.20000000000000001
+4|1|Wid0.2|0.20000000000000001|0.20000000000000001
+end:designrule_track_width
+begin:designrule_via|id:INTEGER:-1|padstackname:TEXT:''|isvia:INTEGER:0
+1|Via0.7x0.35|1
+2|Via0.9x0.45|1
+3|kicad_via_0.9000_0.4500_0_1|1
+end:designrule_via
+begin:designrule_via_space|id:INTEGER:-1|padstack1:TEXT:''|padstack2:TEXT:''|clearance:REAL:0.0
+end:designrule_via_space
+begin:drill_geometry|id:INTEGER:-1|drill_name:TEXT:''|drill_type:INTEGER:0|shape_name:TEXT:''|diameter_mm:INTEGER:0|slot_width_mm:INTEGER:0|slot_height_mm:INTEGER:0
+1125899906842648|kicad_via_0.9000_0.4500_0_1|1||450000
+end:drill_geometry
+begin:global|id:INTEGER:-1|key:TEXT:''|value:TEXT:''
+-3|service.design.derived_generation|1
+1||0
+2||true
+3||true
+4||false
+5||true
+6||true
+7||5
+9|9|Wid0.2
+17|17|RF-0.15
+18|18|RF-0.15
+19|19|RF-0.15
+20|20|RF-0.15
+21|21|RF-0.15
+26|26|kicad_via_0.9000_0.4500_0_1
+27|DesignFilePath|/private/var/folders/vw/574c6h5j31742wf00nsmxlth0000gn/T/HQPCB-convert/06_keepout_netclass-7175333edb6c4903a9055491210f3f60.hqpcb
+28|ViewGray|false
+29|DesignReadOnly|0
+end:global
+begin:graphic_barcode|id:INTEGER:-1|layerId:INTEGER:0|originXMm:INTEGER:0|originYMm:INTEGER:0|markKind:INTEGER:0|barcodeType:INTEGER:0|barcodeName:TEXT:''|content:TEXT:''|textHeightMm:INTEGER:0|codeHeightMm:INTEGER:0|areaWidthMm:INTEGER:0|areaHeightMm:INTEGER:0|isInverted:INTEGER:0|showText:INTEGER:0|rotationDeg:REAL:0.0|isMirrored:INTEGER:0|fontFamily:TEXT:''|paramsJson:TEXT:''
+end:graphic_barcode
+begin:graphic_label|id:INTEGER:-1|layer_id:INTEGER:0|origin_x_mm:INTEGER:0|origin_y_mm:INTEGER:0|font_family:TEXT:''|font_type:TEXT:''|text_kind:INTEGER:0|stroke_font:TEXT:''|font_id:INTEGER:0|stroke_width_mm:INTEGER:0|is_use_ttfonts:INTEGER:0|is_designator:INTEGER:0|is_comment:INTEGER:0|font_size_mm:INTEGER:0|text_width_mm:INTEGER:0|text_height_mm:INTEGER:0|line_gap:INTEGER:0|text_align:TEXT:''|text_baseline:TEXT:''|origin_type:TEXT:''|orientation:TEXT:''|text:TEXT:''|rotation_deg:REAL:0.0|is_mirrored:INTEGER:0|is_bold:INTEGER:0|is_italic:INTEGER:0|is_inverted:INTEGER:0|is_inverted_rect:INTEGER:0|is_special_deal:INTEGER:0|box_left_mm:INTEGER:0|box_bottom_mm:INTEGER:0|box_width_mm:INTEGER:0|box_height_mm:INTEGER:0|is_mult_line:INTEGER:0|properties_json:TEXT:''
+1970324836974619|1004|27500000|-2500000|StrokeSans|stroke||sansserif||200000||||1400000|25200000|1400000|1400000|left|top|top_left|horizontal|keepout + netclass|||||||||||||{"thicknessMm":0.2000,"kicadMultiline":false,"kicadMirror":false}
+1970324836974621|1004|42000000|-18000000|StrokeSans|stroke||sansserif||150000||||1100000|11000000|1100000|1100000|left|top|top_left|horizontal|RF keepout|||||||||||||{"thicknessMm":0.1500,"kicadMultiline":false,"kicadMirror":false}
+end:graphic_label
+begin:graphic_object|id:INTEGER:-1|owner_type:INTEGER:0|obj_type:INTEGER:0|obj_name:TEXT:''|layer_id:INTEGER:0|parent_name:TEXT:''|net_name:TEXT:''|is_locked:INTEGER:0|is_highlighted:INTEGER:0|geom_json:TEXT:''
+end:graphic_object
+begin:graphic_path|id:INTEGER:-1|layer_id:INTEGER:0|source_shape_type:INTEGER:0|usage_raw:TEXT:''|origin_x_mm:INTEGER:0|origin_y_mm:INTEGER:0|width_mm:INTEGER:0|height_mm:INTEGER:0|line_width_mm:INTEGER:0|rotation_deg:REAL:0.0|corner_radius_mm:INTEGER:0|dash_style:TEXT:''|corner_usage:TEXT:''|is_closed:INTEGER:0|raw_geom_json:TEXT:''
+end:graphic_path
+begin:graphic_path_segment|id:INTEGER:-1|graphic_path_id:INTEGER:0|seq_no:INTEGER:0|segment_type:INTEGER:0|x1_mm:INTEGER:0|y1_mm:INTEGER:0|x2_mm:INTEGER:0|y2_mm:INTEGER:0|cx_mm:INTEGER:0|cy_mm:INTEGER:0|radius_mm:INTEGER:0|clockwise:INTEGER:0
+end:graphic_path_segment
+begin:layer_configuration|id:INTEGER:-1|name:TEXT:''|mode:INTEGER:0|last_mode:INTEGER:0|angle:INTEGER:0|pitch:INTEGER:0|width:INTEGER:0|outline:INTEGER:0|r:INTEGER:0|g:INTEGER:0|b:INTEGER:0|a:INTEGER:0|selected:INTEGER:0
+0|Conductor1|2|||5|1|2|200|52|52|255|1
+1|Conductor2|2|||5|1|2|77|127|196|255|1
+1000|Soldermask Top|2|||5|1|2|216|100|255|102|1
+1001|Soldermask Bottom|2|||5|1|2|2|255|238|102|1
+1002|Pastemask Top|2|||5|1|2|180|160|154|230|1
+1003|Pastemask Bottom|2|||5|1|2||194|194|255|1
+1004|Silkscreen Top|2|||5|1|2|242|237|161|255|1
+1005|Silkscreen Bottom|2|||5|1|2|232|178|167|255|1
+1006|Coverlay Top|2|||5|1|2|245|73|186|128|1
+1007|Coverlay Bottom|2|||5|1|2|76|83|184|128|1
+1008|Stiffener Top|2|||5|1|2|7|209|190|128|1
+1009|Stiffener Bottom|2|||5|1|2|203|29|233|128|1
+2000|Component Area Top|2|||5|1|2|48|137|114|51|1
+2001|Component Area Bottom|2|||5|1|2|207|157|242|51|1
+2002|Assembly Top|2|||5|1|2|186|176|138|128|1
+2003|Assembly Bottom|2|||5|1|2|128||128|128|1
+3000|Board Outline|1|||5|1|2|208|210|205|255|1
+3001|Through Via Hole|2|||5|1|2|236|236|236|255|1
+3002|Blind & Buried Via Hole|2|||5|1|2|187|151|38|255|1
+3003|Pin Hole|2|||5|1|2|56|128|54|128|1
+3004|Mechanical Hole|2|||5|1|2|56|128|54|128|1
+3005|Testpoint Hole|2|||5|1|2|56|128|54|128|1
+3006|Backdrill Hole|2|||5|1|2|229|135|75|191|1
+3007|Panel Outline|1|||5|1|2|160|35|138|128|1
+3008|Zone Outline|1|||5|1|2|224|137|18|128|1
+3009|Bend Area|2|||5|1|2|22|251|98|128|1
+3010|Bend Line|2|||5|1|2|152|14|59|128|1
+3011|FPC Area|1|||5|1|2|56|255|54|128
+3012|Cavity|1|||5|1|2|203|29|133|128|1
+4000|Route Keepin|1|||5|1|2|149|239|68|128|1
+4001|Footprint Keepin|1|||5|1|2|255|165||128|1
+4002|Height Area|1|||5|1|2|61|12|75|128|1
+4003|Rule Area|1|||5|1|2|97|29|206|128
+4004|Polar Grid|2|||5|1|2|11|144|229|128
+4005|Component Group Top|2|||5|1|2|131|41|113|191|1
+4006|Component Group Bottom|2|||5|1|2|252|226|22|191|1
+5000|Keepout1|1|||5|1|2|34|235|47|191
+5001|Keepout2|1|||5|1|2|3|133|124|191
+6000|Dimension Top|2|||5|1|2|175|59|210|128
+6001|Dimension Bottom|2|||5|1|2|76|75|115|128
+6002|Prob Top|2|||5|1|2|65|72|206|128
+6003|Prob Bottom|2|||5|1|2|151|13|47|128
+6004|NC Drill Figure|2|||5|1|2|132|250|86|128
+6005|NC Drill Legend|2|||5|1|2|53|251|24|128
+6006|Plot Outline|5|1||5|1|2|255|255||255
+6007|Cross Section Chart|2|||5|1|2|57|37|92|128
+6008|Route Path|2|||5|1|2|247|43|186|128
+7000|User Layer 1|2|||5|1|2|13|51|163|128|1
+7001|User Layer 2|2|||5|1|2|222|250|235|128|1
+7002|User Layer 3|2|||5|1|2|54|45|49|128|1
+7003|User Layer 4|2|||5|1|2|29|96|183|128|1
+7004|User Layer 5|2|||5|1|2|191|47|96|128|1
+7005|User Layer 6|2|||5|1|2|67|32|60|128|1
+7006|User Layer 7|2|||5|1|2|192|220|4|128|1
+7007|User Layer 8|2|||5|1|2|197|199|36|128|1
+7008|User Layer 9|2|||5|1|2|83|163|13|128|1
+7009|User Layer 10|2|||5|1|2|235|110|64|128|1
+7010|User Layer 11|2|||5|1|2|61|148|44|191|1
+7011|User Layer 12|2|||5|1|2|195|52|152|191|1
+7012|User Layer 13|2|||5|1|2|114|175|194|191|1
+7013|User Layer 14|2|||5|1|2|154|131||191|1
+7014|User Layer 15|2|||5|1|2|171|10|168|191|1
+7015|User Layer 16|2|||5|1|2|15|2|24|191|1
+end:layer_configuration
+begin:layer|id:INTEGER:-1|layer_id:INTEGER:0|cad_layer_name:TEXT:''|logical_layer_name:TEXT:''|layer_group:TEXT:''|is_conductor:INTEGER:0|conductor_index:INTEGER:0|is_visible:INTEGER:0
+3659174697238529||Conductor1|Conductor1|conductor|1||1
+3659174697238530|1|Conductor2|Conductor2|conductor|1|1|1
+3659174697238531|1000|Soldermask Top|Soldermask Top|mask|||1
+3659174697238532|1001|Soldermask Bottom|Soldermask Bottom|mask|||1
+3659174697238533|1002|Pastemask Top|Pastemask Top|paste|||1
+3659174697238534|1003|Pastemask Bottom|Pastemask Bottom|paste|||1
+3659174697238535|1004|Silkscreen Top|Silkscreen Top|silkscreen|||1
+3659174697238536|1005|Silkscreen Bottom|Silkscreen Bottom|silkscreen|||1
+3659174697238537|1006|Coverlay Top|Coverlay Top|coverlay|||1
+3659174697238538|1007|Coverlay Bottom|Coverlay Bottom|coverlay|||1
+3659174697238539|1008|Stiffener Top|Stiffener Top|stiffener|||1
+3659174697238540|1009|Stiffener Bottom|Stiffener Bottom|stiffener|||1
+3659174697238541|2000|Component Area Top|Component Area Top|component|||1
+3659174697238542|2001|Component Area Bottom|Component Area Bottom|component|||1
+3659174697238543|2002|Assembly Top|Assembly Top|component|||1
+3659174697238544|2003|Assembly Bottom|Assembly Bottom|component|||1
+3659174697238545|3000|Board Outline|Board Outline|board|||1
+3659174697238546|3001|Through Via Hole|Through Via Hole|board|||1
+3659174697238547|3002|Blind & Buried Via Hole|Blind & Buried Via Hole|board|||1
+3659174697238548|3003|Pin Hole|Pin Hole|board|||1
+3659174697238549|3004|Mechanical Hole|Mechanical Hole|board|||1
+3659174697238550|3005|Testpoint Hole|Testpoint Hole|board|||1
+3659174697238551|3006|Backdrill Hole|Backdrill Hole|board|||1
+3659174697238552|3007|Panel Outline|Panel Outline|board|||1
+3659174697238553|3008|Zone Outline|Zone Outline|board|||1
+3659174697238554|3009|Bend Area|Bend Area|board|||1
+3659174697238555|3010|Bend Line|Bend Line|board|||1
+3659174697238556|3011|FPC Area|FPC Area|board|||1
+3659174697238557|3012|Cavity|Cavity|board|||1
+3659174697238558|4000|Route Keepin|Route Keepin|constraint|||1
+3659174697238559|4001|Footprint Keepin|Footprint Keepin|constraint|||1
+3659174697238560|4002|Height Area|Height Area|constraint|||1
+3659174697238561|4003|Rule Area|Rule Area|constraint|||1
+3659174697238562|4004|Polar Grid|Polar Grid|constraint|||1
+3659174697238563|4005|Component Group Top|Component Group Top|constraint|||1
+3659174697238564|4006|Component Group Bottom|Component Group Bottom|constraint|||1
+3659174697238565|5000|Keepout1|Keepout1|keepout|||1
+3659174697238566|5001|Keepout2|Keepout2|keepout|||1
+3659174697238567|6000|Dimension Top|Dimension Top|manufacturing|||1
+3659174697238568|6001|Dimension Bottom|Dimension Bottom|manufacturing|||1
+3659174697238569|6002|Prob Top|Prob Top|manufacturing|||1
+3659174697238570|6003|Prob Bottom|Prob Bottom|manufacturing|||1
+3659174697238571|6004|NC Drill Figure|NC Drill Figure|manufacturing|||1
+3659174697238572|6005|NC Drill Legend|NC Drill Legend|manufacturing|||1
+3659174697238573|6006|Plot Outline|Plot Outline|manufacturing|||1
+3659174697238574|6007|Cross Section Chart|Cross Section Chart|manufacturing|||1
+3659174697238575|6008|Route Path|Route Path|manufacturing|||1
+3659174697238576|7000|User Layer 1|User Layer 1|user|||1
+3659174697238577|7001|User Layer 2|User Layer 2|user|||1
+3659174697238578|7002|User Layer 3|User Layer 3|user|||1
+3659174697238579|7003|User Layer 4|User Layer 4|user|||1
+3659174697238580|7004|User Layer 5|User Layer 5|user|||1
+3659174697238581|7005|User Layer 6|User Layer 6|user|||1
+3659174697238582|7006|User Layer 7|User Layer 7|user|||1
+3659174697238583|7007|User Layer 8|User Layer 8|user|||1
+3659174697238584|7008|User Layer 9|User Layer 9|user|||1
+3659174697238585|7009|User Layer 10|User Layer 10|user|||1
+end:layer
+begin:layer_stack|id:INTEGER:-1|template_id:INTEGER:0|ordinal:INTEGER:0|page_name:TEXT:''|layer_name:TEXT:''|system_id:TEXT:''|layer_type:TEXT:''|function_name:TEXT:''|fpc_layer:TEXT:''|thickness:TEXT:''|material:TEXT:''|conductivity:TEXT:''|dielectric:TEXT:''|loss_tangent:TEXT:''|pin_suppressed:INTEGER:0|via_suppressed:INTEGER:0
+end:layer_stack
+begin:layer_stack_material|id:INTEGER:-1|template_id:INTEGER:0|ordinal:INTEGER:0|name:TEXT:''|material:TEXT:''|function_name:TEXT:''|thickness:TEXT:''|tolerance_add:TEXT:''|tolerance_sub:TEXT:''|weight:TEXT:''|conductivity:TEXT:''|dielectric:TEXT:''|loss:TEXT:''
+end:layer_stack_material
+begin:layer_stack_template|id:INTEGER:-1|template_key:TEXT:''|conductor_count:INTEGER:0|fpc_enabled:INTEGER:0|is_current:INTEGER:0|ordinal:INTEGER:0|updated_at:INTEGER:0
+end:layer_stack_template
+begin:line_figure|id:INTEGER:-1|figure_name:TEXT:''|layer_id:INTEGER:0|origin_x_mm:INTEGER:0|origin_y_mm:INTEGER:0|width_mm:INTEGER:0|height_mm:INTEGER:0|line_width_mm:INTEGER:0|is_closed:INTEGER:0|is_locked:INTEGER:0|raw_geom_json:TEXT:''
+end:line_figure
+begin:line_figure_segment|id:INTEGER:-1|line_figure_id:INTEGER:0|seq_no:INTEGER:0|segment_type:INTEGER:0|x1_mm:INTEGER:0|y1_mm:INTEGER:0|x2_mm:INTEGER:0|y2_mm:INTEGER:0|cx_mm:INTEGER:0|cy_mm:INTEGER:0|radius_mm:INTEGER:0|clockwise:INTEGER:0
+end:line_figure_segment
+begin:manufacturing_definitions|id:TEXT:''|kind:TEXT:''|revision:INTEGER:0|payload_version:INTEGER:0|payload_codec:TEXT:''|data_blob:BLOB:\\b 
+end:manufacturing_definitions
+begin:net_classes|id:TEXT:''|payload_version:INTEGER:0|payload_codec:TEXT:''|data_blob:BLOB:\\b 
+end:net_classes
+begin:netlist|id:INTEGER:-1|net_name:TEXT:''|comp_name:TEXT:''|package_name:TEXT:''|pin_num:TEXT:''|pin_name:TEXT:''|footprint:TEXT:''
+end:netlist
+begin:net_node|id:INTEGER:-1|nodeType:INTEGER:0|refdes:TEXT:''|pinNumber:TEXT:''|layerId:INTEGER:0|xMm:TEXT:''|yMm:TEXT:''
+end:net_node
+begin:object_node|id:INTEGER:-1|object_id:INTEGER:0|parent_node_id:INTEGER:0|sort_order:INTEGER:0
+5066549580791814|7881299347898373||1
+5066549580791815|8725724278030340|5066549580791814|2
+5066549580791817|7881299347898376||3
+5066549580791818|8725724278030339|5066549580791817|4
+5066549580791820|7881299347898379||5
+5066549580791821|8725724278030337|5066549580791820|6
+5066549580791823|7881299347898382||7
+5066549580791824|8725724278030338|5066549580791823|8
+5066549580791827|562949953421330||9
+5066549580791829|1407374883553300|5066549580791827|10
+5066549580791831|1407374883553302|5066549580791827|11
+5066549580791833|1125899906842648|5066549580791827|12
+5066549580791834|9007199254741009||13
+5066549580791836|1970324836974619||14
+5066549580791838|1970324836974621||15
+5066549580791845|1688849860263967||16
+5066549580791852|1688849860263974||17
+5066549580791859|1688849860263981||18
+5066549580791866|1688849860263988||19
+5066549580791868|5910974510923835
+end:object_node
+begin:objects|id:TEXT:''|kind:TEXT:''|revision:INTEGER:0|layer_id:TEXT:''|net_id:TEXT:''|owner_id:TEXT:''|definition_id:TEXT:''|flags:INTEGER:0|payload_version:INTEGER:0|payload_codec:TEXT:''|header_blob:BLOB:\\b |data_blob:BLOB:\\b 
+end:objects
+begin:pad_geometry|id:INTEGER:-1|layer_scope:TEXT:''|layer_id:INTEGER:0|pad_use_type:INTEGER:0|figure_name:TEXT:''|geometry_type:INTEGER:0|shape_class:TEXT:''|width_mm:INTEGER:0|height_mm:INTEGER:0|diameter_mm:INTEGER:0|corner_radius_mm:INTEGER:0|polygon_side_count:INTEGER:0|offset_x_mm:INTEGER:0|offset_y_mm:INTEGER:0|rotation_deg:REAL:0.0|raw_geom_json:TEXT:''|raw_vx_item:TEXT:''
+1407374883553300|Begin||1||2||900000|900000|900000
+1407374883553302|End|1|1||2||900000|900000|900000
+end:pad_geometry
+begin:padstack_def|id:INTEGER:-1|padstack_name:TEXT:''|definition_key:TEXT:''|fpt_id:TEXT:''|version_major:INTEGER:0|version_minor:INTEGER:0|signature_content:TEXT:''|unit_name:TEXT:''|object_type:INTEGER:0|usage_raw:TEXT:''|drill_type:INTEGER:0|drill_layer_name:TEXT:''|layer_from_id:INTEGER:0|layer_to_id:INTEGER:0|suppress_ui_pads:INTEGER:0|number:TEXT:''|rotation_deg:REAL:0.0|hole_rotation_deg:REAL:0.0|raw_definition:TEXT:''
+562949953421330|kicad_via_0.9000_0.4500_0_1|kicad_via_0.9000_0.4500_0_1|||||mm|2||1|||1
+end:padstack_def
+begin:project_actived_scheme|id:INTEGER:-1|group_name:TEXT:''|scheme_name:TEXT:''
+1|display|Default
+2|figure|Default
+end:project_actived_scheme
+begin:project_display_canvas|id:INTEGER:-1|dot:INTEGER:0|visible:INTEGER:0|snap:INTEGER:0|temp:INTEGER:0|offset_x:REAL:0.0|offset_y:REAL:0.0|color:INTEGER:0|library_dir:TEXT:''|update_time:INTEGER:0
+1|1|1|||||||1795146424509
+end:project_display_canvas
+begin:project_font|id:INTEGER:-1|display_name:TEXT:''|family_name:TEXT:''|format:TEXT:''|content_sha256:TEXT:''|face_index:INTEGER:0|font_local:INTEGER:0|weight:INTEGER:0|italic:INTEGER:0|data_blob:BLOB:\\b 
+end:project_font
+begin:project_library_pathes|id:INTEGER:-1|kind:TEXT:''|ordinal:INTEGER:0|path:TEXT:''|enable:INTEGER:0
+end:project_library_pathes
+begin:project_meta|key:TEXT:''|value:TEXT:''
+dict_generated|2026-11-20T02:10:46.068Z
+dict_init_script|pcb_v5_tables_initialization.sql
+dict_version|1.0
+file_summary|{"conductor_layers":2,"total_layers":57,"components":0,"nets":0,"pins":0,"vias":0}
+schema_version|1.0
+end:project_meta
+begin:project_options|id:INTEGER:-1|name:TEXT:''|value:TEXT:''
+end:project_options
+begin:project_supported_schemes|id:INTEGER:-1|group_name:TEXT:''|scheme_name:TEXT:''|step_x:REAL:0.0|step_y:REAL:0.0|count_x:INTEGER:0|count_y:INTEGER:0|ordinal:INTEGER:0
+1|display|Default|1|1|10|10|1
+2|figure|Default|1|1|10|10|1
+end:project_supported_schemes
+begin:rat|id:INTEGER:-1|netId:INTEGER:0|x1Mm:REAL:0.0|y1Mm:REAL:0.0|x2Mm:REAL:0.0|y2Mm:REAL:0.0
+end:rat
+begin:relations|ordinal:INTEGER:0|source_id:TEXT:''|target_id:TEXT:''|kind:INTEGER:0|role:TEXT:''|payload_version:INTEGER:0|payload_codec:TEXT:''|data_blob:BLOB:\\b 
+end:relations
+begin:render_feature_projection_cache|feature_id:TEXT:''|object_kind:TEXT:''|object_revision:INTEGER:0|cache_version:INTEGER:0|payload_json:TEXT:''
+end:render_feature_projection_cache
+begin:rules|id:TEXT:''|revision:INTEGER:0|payload_version:INTEGER:0|payload_codec:TEXT:''|data_blob:BLOB:\\b 
+end:rules
+begin:signal_definitions|id:TEXT:''|kind:TEXT:''|revision:INTEGER:0|payload_version:INTEGER:0|payload_codec:TEXT:''|data_blob:BLOB:\\b 
+end:signal_definitions
+begin:symbol_def|id:INTEGER:-1|footprint_name:TEXT:''|package_name:TEXT:''|definition_key:TEXT:''|fpt_id:TEXT:''|version_major:INTEGER:0|version_minor:INTEGER:0|is_test_point:INTEGER:0|bbox_min_x:INTEGER:0|bbox_min_y:INTEGER:0|bbox_max_x:INTEGER:0|bbox_max_y:INTEGER:0|pin_objs_raw:TEXT:''|raw_definition:TEXT:''
+end:symbol_def
+begin:symbol_pin_def|id:INTEGER:-1|padstack_def_id:INTEGER:0|pin_number:TEXT:''|pin_name:TEXT:''|loc_x_mm:INTEGER:0|loc_y_mm:INTEGER:0|rotation_deg:REAL:0.0|offset_x_mm:INTEGER:0|offset_y_mm:INTEGER:0|is_mirrored:INTEGER:0|is_mechanical:INTEGER:0|padstack_object_type:INTEGER:0|raw_pin_obj:TEXT:''
+end:symbol_pin_def
+begin:trace_path_connection|id:INTEGER:-1|connType:INTEGER:0|connCount:INTEGER:0
+end:trace_path_connection
+begin:trace_path|id:INTEGER:-1|net_id:INTEGER:0|branch_key:TEXT:''|layer_id:INTEGER:0|width_mm:INTEGER:0|is_etch:INTEGER:0|is_fixed:INTEGER:0|is_locked:INTEGER:0|is_read_only:INTEGER:0|segment_count:INTEGER:0|x1_mm:INTEGER:0|y1_mm:INTEGER:0|x2_mm:INTEGER:0|y2_mm:INTEGER:0|prop_raw:TEXT:''
+7881299347898373|2||1|500000|||||1|25000000|-28000000|40000000|-28000000
+7881299347898376|2|||500000|||||1|5000000|-28000000|25000000|-28000000
+7881299347898379|4|||200000|||||1|5000000|-12000000|20000000|-12000000
+7881299347898382|3|||200000|||||1|5000000|-14000000|20000000|-14000000
+end:trace_path
+begin:trace_path_endpoint|id:INTEGER:-1|endpointRole:TEXT:''|targetType:INTEGER:0|xMm:TEXT:''|yMm:TEXT:''
+end:trace_path_endpoint
+begin:trace_segment|id:INTEGER:-1|layer_id:INTEGER:0|seq_no:INTEGER:0|segment_type:INTEGER:0|x1_mm:INTEGER:0|y1_mm:INTEGER:0|x2_mm:INTEGER:0|y2_mm:INTEGER:0|width_mm:INTEGER:0|cx_mm:INTEGER:0|cy_mm:INTEGER:0|radius_mm:INTEGER:0|clockwise:INTEGER:0|raw_geom_json:TEXT:''
+8725724278030337|||1|5000000|-12000000|20000000|-12000000|200000|||||{"net":"USB_DP","netId":4}
+8725724278030338|||1|5000000|-14000000|20000000|-14000000|200000|||||{"net":"USB_DN","netId":3}
+8725724278030339|||1|5000000|-28000000|25000000|-28000000|500000|||||{"net":"PWR_5V","netId":2}
+8725724278030340|1||1|25000000|-28000000|40000000|-28000000|500000|||||{"net":"PWR_5V","netId":2}
+end:trace_segment
+begin:via|id:INTEGER:-1|net_id:INTEGER:0|padstackdef_id:INTEGER:0|via_name:TEXT:''|x_mm:INTEGER:0|y_mm:INTEGER:0|rotation_deg:REAL:0.0|mirror_type:INTEGER:0|bbox_min_x:INTEGER:0|bbox_min_y:INTEGER:0|bbox_max_x:INTEGER:0|bbox_max_y:INTEGER:0|layer_from_id:INTEGER:0|layer_to_id:INTEGER:0|is_blind_buried:INTEGER:0|is_fixed:INTEGER:0|is_locked:INTEGER:0|is_mechanical:INTEGER:0|is_test_point:INTEGER:0|ismicro:INTEGER:0|is_tented_top:INTEGER:0|is_tented_bottom:INTEGER:0|custom_attr_raw:TEXT:''
+9007199254741009|2|562949953421330||25000000|-28000000|||24550000|-28450000|25450000|-27550000||1
+end:via
+begin:view_configuration|id:INTEGER:-1|name:TEXT:''|r:INTEGER:0|g:INTEGER:0|b:INTEGER:0|a:INTEGER:0|outline:INTEGER:0|fill_mode:INTEGER:0|fill_angle:INTEGER:0|fill_pitch:INTEGER:0|fill_width:INTEGER:0|visibled:INTEGER:0|color_valid:INTEGER:0
+0|Track|255|255|255|255||2||5|1|1
+1|Pin|255|255|255|255||2||5|1|1
+2|Via|255|255|255|255||2||5|1|1
+3|Area|255|255|255|255||2||5|1|1
+4|Mechanical Padstack|255|255|255|255||2||5|1|1
+5|Testpoint|255|255|255|255||2||5|1|1
+6|Text|255|255|255|255||2||5|1|1
+7|Line|255|255|255|255||2||5|1|1
+8|Ref-Des|255|255|255|255||2||5|1|1
+9|Dimension|255|255|255|255||2||5|1|1
+10|Hole Symbol|255|255|255|255||2||5|1|1
+11|Hole Character|255|255|255|255||2||5|1|1
+1000|Rats|245|255|213|179||2||5|1||1
+1001|Highlight|255|141|26|255||2||5|1|1|1
+1002|Highlight Net|212|48|48|255||2||5|1|1|1
+1003|Background||16|35|255||2||5|1|1|1
+1004|Lock|255|235|59|255||2||5|1|1|1
+1005|Selected|252|67|132|77||2||5|1|1|1
+1006|Pre-selected|67|252|70|77||2||5|1|1|1
+2000|Pin Number|212|48|48|255||2||5|1|1|1
+2001|Pin Name|255|141|26|255||2||5|1|1|1
+2002|Net Name On Pin|255|255|255|128||2||5|1|1|1
+2003|Net Name On Track|255|255|255|128||2||5|1|1|1
+2004|Net Name On Via|255|255|255|128||2||5|1|1|1
+2005|Net Name On Copper|255|255|255|128||2||5|1|1|1
+2006|Net Name On Mech. Padstack|255|255|255|128||2||5|1|1|1
+2007|DRC Error|255|255|255|255||2||5|1|1
+2008|Through Hole From-to|255|255|255|255||2||5|1||1
+2009|BB Hole From-to|255|255|255|255||2||5|1||1
+end:view_configuration
+file:finish

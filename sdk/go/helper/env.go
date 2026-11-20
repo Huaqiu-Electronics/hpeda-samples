@@ -11,19 +11,19 @@ import (
 	hqeda "github.com/Huaqiu-Electronics/hqpcb-go-sdk"
 )
 
-// BoardPresets 示例名 → Boards/hqpcb 文件名。
+// BoardPresets 示例名 → Boards/hqpcbx 文件名。
 var BoardPresets = map[string]string{
-	"tracks":      "01_tracks_vias.hqpcb",
-	"arc_tracks":  "05_arc_tracks_vias.hqpcb",
-	"components":  "02_components_pads.hqpcb",
-	"zones":       "03_zones_graphics.hqpcb",
-	"all_basics":  "04_all_basics.hqpcb",
-	"keepout":     "06_keepout_netclass.hqpcb",
-	"custom_pads": "07_custom_pads_curves.hqpcb",
-	"blind":       "08_blind_bottom.hqpcb",
-	"slots":       "09_slots_thermals.hqpcb",
-	"outline":     "10_outline_arcs.hqpcb",
-	"diffpair":    "11_diffpair_route.hqpcb",
+	"tracks":      "01_tracks_vias.hqpcbx",
+	"arc_tracks":  "05_arc_tracks_vias.hqpcbx",
+	"components":  "02_components_pads.hqpcbx",
+	"zones":       "03_zones_graphics.hqpcbx",
+	"all_basics":  "04_all_basics.hqpcbx",
+	"keepout":     "06_keepout_netclass.hqpcbx",
+	"custom_pads": "07_custom_pads_curves.hqpcbx",
+	"blind":       "08_blind_bottom.hqpcbx",
+	"slots":       "09_slots_thermals.hqpcbx",
+	"outline":     "10_outline_arcs.hqpcbx",
+	"diffpair":    "11_diffpair_route.hqpcbx",
 }
 
 // ResolveEndpoint 委托 SDK；失败时打印并 os.Exit(2)。
@@ -51,9 +51,9 @@ func samplesRoot() string {
 	return filepath.Clean(filepath.Join(filepath.Dir(file), "..", "..", ".."))
 }
 
-// BoardsDir 返回 Samples/Boards/hqpcb。
+// BoardsDir 返回 Samples/Boards/hqpcbx。
 func BoardsDir() string {
-	return filepath.Join(samplesRoot(), "Boards", "hqpcb")
+	return filepath.Join(samplesRoot(), "Boards", "hqpcbx")
 }
 
 // BoardPath 显式路径或预设板。

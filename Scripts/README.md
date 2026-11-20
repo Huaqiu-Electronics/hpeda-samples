@@ -31,8 +31,8 @@ js-load path=Samples/Scripts/Js/01_hello.js
 | `python-load` | 随包 Python；同上 |
 | `go-load` | `script.go.run` 短别名（TinyGo WASI；需 `PCB_ENABLE_GOSCRIPT=ON`） |
 
-**连接 vs 后续 API**：脚本模式 `connect` / `Connect` 走 `PCB_HOST_DIR` 宿主桥（与 SDK Flight socket 不同）；连接之后的方法名与语义以 Flight `ClientFactory` 为准（`wsOpen` / `doAction` / `ping` / `caps` 等）。UI 自动化等 Flight 未覆盖能力仍用 `cli.cmdlet(...)` 逃生舱。
+**连接 vs 后续 API**：推荐 `NewConnection(true)` / `createConnection(true)` / `new_connection(True)` 一键建连。脚本模式连接走 `PCB_HOST_DIR` 宿主桥（与 SDK Flight socket 不同）；连接之后的方法名与语义以 Flight `ClientFactory` 为准（`open` / `openAndWait` / `doAction` / `ping` / `caps` 等）。UI 自动化等 Flight 未覆盖能力仍用 `cli.cmdlet(...)` 逃生舱。
 
-交互脚本经宿主 cmdlet：`action.start` / `action.input` / `action.current` / `sleep.ms`。
+交互脚本经宿主 cmdlet：`action.start` / `action.input` / `action.current`。停顿用 `cli.sleepMs` / `cli.sleep_ms` / `cli.SleepMs`（内部走 `sleep.ms`）。
 
 相对路径会自应用目录上溯仓库根探测，因此从 `.app` 启动也可写 `Samples/Scripts/...`。

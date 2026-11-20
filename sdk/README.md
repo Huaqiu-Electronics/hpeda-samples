@@ -1,7 +1,7 @@
 # SDK 访问示例（Python / JavaScript / Go）
 
-通过 Arrow Flight IPC 访问 HQPCB，**读写** `Samples/Boards/hqpcb` 下的简易 V5 样板。  
-产品入口统一为 **ClientFactory**（Go `hqeda.NewClientFactory()` / Python `ClientFactory()` / JS `createClientFactory()`）。  
+通过 Arrow Flight IPC 访问 HQPCB，**读写** `Samples/Boards/hqpcbx` 下的简易 V5 样板。  
+产品入口统一为 **ClientFactory**；推荐一键建连：Go `hqeda.NewConnection(gui)` / Python `new_connection(gui)` / JS `createConnection(gui)`。  
 端点解析在 SDK：`hqeda.ResolveEndpoint` / `resolve_endpoint` / `resolveEndpoint`；样例薄封装见各语言 `helper`。  
 写路径文档：[`sdk/docs/Flight-Write-API.md`](../../sdk/docs/Flight-Write-API.md)。
 
@@ -13,7 +13,7 @@
 
 ## 样板板 ↔ 示例
 
-| 示例 | 默认 `.hqpcb` | 读写要点 |
+| 示例 | 默认 `.hqpcbx` | 读写要点 |
 |------|---------------|----------|
 | `01_hello_ping` | （无板） | 连接 / ping / caps |
 | `02_methods_list` | （无板） | methods.list |
@@ -31,7 +31,7 @@
 可用其它板替换默认路径，例如：
 
 ```bash
-./python/run 07_footprints_pads.py headless ../../Boards/hqpcb/08_blind_bottom.hqpcb
+./python/run 07_footprints_pads.py headless ../../Boards/hqpcbx/08_blind_bottom.hqpcbx
 ```
 
 ## 前置

@@ -9,13 +9,12 @@ import sys
 from helper import ensure_sdk_path, resolve_pipe
 
 ensure_sdk_path()
-from hqeda_client import ClientFactory  # noqa: E402
+from hqeda_client import new_connection  # noqa: E402
 
 
 def main(argv: list[str]) -> int:
-    pipe, gui, _ = resolve_pipe(argv)
-    cli = ClientFactory()
-    cli.connect(pipe, gui=gui)
+    _, gui, _ = resolve_pipe(argv)
+    cli = new_connection(gui)
     echo = cli.ping("samples-sdk-01")
     caps = cli.caps()
     print(f"pipe={cli.pipe}")

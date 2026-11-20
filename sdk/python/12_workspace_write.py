@@ -13,16 +13,15 @@ import sys
 from helper import board_path, ensure_sdk_path, check_env, resolve_pipe
 
 ensure_sdk_path()
-from hqeda_client import ClientFactory  # noqa: E402
+from hqeda_client import new_connection  # noqa: E402
 from hqeda_write import workspace_id  # noqa: E402
 
 
 def main(argv: list[str]) -> int:
-    pipe, gui, _ = resolve_pipe(argv)
+    _, gui, _ = resolve_pipe(argv)
     a = board_path(None, preset="tracks")
     b = board_path(None, preset="components")
-    cli = ClientFactory()
-    cli.connect(pipe, gui=gui)
+    cli = new_connection(gui)
     if (rc := check_env(cli)) is not None:
         cli.disconnect()
         return rc

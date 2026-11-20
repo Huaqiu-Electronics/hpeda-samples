@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """读 04_all_basics：DoGet objects.list / query.table。
 
-用法：./run 10_objects_query.py [headless] [board.hqpcb]
+用法：./run 10_objects_query.py [headless] [board.hqpcbx]
 """
 
 from __future__ import annotations
@@ -12,14 +12,13 @@ import sys
 from helper import board_path, ensure_sdk_path, check_env, resolve_pipe
 
 ensure_sdk_path()
-from hqeda_client import ClientFactory  # noqa: E402
+from hqeda_client import new_connection  # noqa: E402
 
 
 def main(argv: list[str]) -> int:
-    pipe, gui, rest = resolve_pipe(argv)
+    _, gui, rest = resolve_pipe(argv)
     path = board_path(rest[0] if rest else None, preset="all_basics")
-    cli = ClientFactory()
-    cli.connect(pipe, gui=gui)
+    cli = new_connection(gui)
     if (rc := check_env(cli)) is not None:
         cli.disconnect()
         return rc

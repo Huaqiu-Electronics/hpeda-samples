@@ -9,13 +9,12 @@ import sys
 from helper import ensure_sdk_path, resolve_pipe
 
 ensure_sdk_path()
-from hqeda_client import ClientFactory  # noqa: E402
+from hqeda_client import new_connection  # noqa: E402
 
 
 def main(argv: list[str]) -> int:
-    pipe, gui, _ = resolve_pipe(argv)
-    cli = ClientFactory()
-    cli.connect(pipe, gui=gui)
+    _, gui, _ = resolve_pipe(argv)
+    cli = new_connection(gui)
     catalog = cli.methods_list()
     print(f"# pipe={cli.pipe} role={cli.peer_role}")
     print(catalog.rstrip())

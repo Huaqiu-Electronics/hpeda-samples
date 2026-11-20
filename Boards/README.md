@@ -1,14 +1,16 @@
-# Boards — 简易 V5 `.hqpcb` 示例
+# Boards — 简易 V5 样板（`.hqpcbx` / `.hqpcb`）
 
-覆盖基本与进阶 PCB 元素的小样板，便于打开验证、导入回归与教学演示。
+覆盖基本与进阶 PCB 元素的小样板，便于打开验证、导入回归与教学演示。  
+**SDK / 脚本示例默认使用 `hqpcbx/*.hqpcbx`（文本工程）。**
 
 ## 目录
 
 | 路径 | 说明 |
 |------|------|
 | `src/*.kicad_pcb` | 手写 KiCad 源（权威可编辑稿） |
-| `hqpcb/*.hqpcb` | 由源板转换得到的 V5 SQLite 工程 |
-| `convert_to_hqpcb.sh` | 批量 `HQPCB_CLI convert` |
+| `hqpcbx/*.hqpcbx` | 文本工程（SDK 样例默认；`convert_to_hqpcb.sh --hqpcbx-only`） |
+| `hqpcb/*.hqpcb` | SQLite 工程（可选，`convert_to_hqpcb.sh`） |
+| `convert_to_hqpcb.sh` | 批量 `HQPCB_CLI convert`（`--hqpcbx` / `--hqpcbx-only`） |
 
 ## 样板一览
 
@@ -36,12 +38,21 @@
 ## 重新转换
 
 ```bash
-./Samples/Boards/convert_to_hqpcb.sh
+./Samples/Boards/convert_to_hqpcb.sh --hqpcbx-only   # SDK 样例用（推荐）
+./Samples/Boards/convert_to_hqpcb.sh --hqpcbx        # 同时写出 .hqpcb + .hqpcbx
+./Samples/Boards/convert_to_hqpcb.sh                 # 仅 .hqpcb
+```
+
+第三方直出文本工程也可单文件：
+
+```bash
+HQPCB_CLI convert Samples/Boards/src/01_tracks_vias.kicad_pcb Samples/Boards/hqpcbx/01_tracks_vias.hqpcbx
 ```
 
 ## 打开
 
 ```bash
+project.open /abs/path/to/Samples/Boards/hqpcbx/11_diffpair_route.hqpcbx
 project.open /abs/path/to/Samples/Boards/hqpcb/11_diffpair_route.hqpcb
 ```
 

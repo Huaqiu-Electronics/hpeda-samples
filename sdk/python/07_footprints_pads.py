@@ -4,7 +4,7 @@
 
 也可用 07_custom_pads_curves / 08_blind_bottom。
 
-用法：./run 07_footprints_pads.py [headless] [board.hqpcb]
+用法：./run 07_footprints_pads.py [headless] [board.hqpcbx]
 """
 
 from __future__ import annotations
@@ -14,14 +14,13 @@ import sys
 from helper import board_path, ensure_sdk_path, check_env, resolve_pipe
 
 ensure_sdk_path()
-from hqeda_client import ClientFactory  # noqa: E402
+from hqeda_client import new_connection  # noqa: E402
 
 
 def main(argv: list[str]) -> int:
-    pipe, gui, rest = resolve_pipe(argv)
+    _, gui, rest = resolve_pipe(argv)
     path = board_path(rest[0] if rest else None, preset="components")
-    cli = ClientFactory()
-    cli.connect(pipe, gui=gui)
+    cli = new_connection(gui)
     if (rc := check_env(cli)) is not None:
         cli.disconnect()
         return rc

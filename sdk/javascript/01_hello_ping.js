@@ -3,10 +3,9 @@
 const { resolvePipe, loadSdk } = require("./helper");
 
 async function main() {
-  const { pipe, gui } = resolvePipe(process.argv);
-  const { createClientFactory } = loadSdk();
-  const cli = createClientFactory();
-  await cli.connect(pipe, { gui });
+  const { gui } = resolvePipe(process.argv);
+  const { createConnection  } = loadSdk();
+  const cli = await createConnection(gui);
   const echo = await cli.ping("samples-sdk-01");
   const caps = cli.peerCaps || {};
   console.log("pipe=" + cli.pipe);

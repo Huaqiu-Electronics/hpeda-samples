@@ -1,6 +1,6 @@
 # JavaScript SDK 示例
 
-依赖仓库 `sdk/javascript`（`npm install`）。默认打开 `Samples/Boards/hqpcb` 对应板。
+依赖仓库 `sdk/javascript`（`npm install`）。默认打开 `Samples/Boards/hqpcbx` 对应板。
 
 ```bash
 cd Samples/sdk/javascript
@@ -8,7 +8,7 @@ cd Samples/sdk/javascript
 ./run 06_nets_vias.js
 ./run 11_design_write.js
 ./run 12_workspace_write.js
-./run 07_footprints_pads.js headless ../../Boards/hqpcb/08_blind_bottom.hqpcb
+./run 07_footprints_pads.js headless ../../Boards/hqpcbx/08_blind_bottom.hqpcbx
 ```
 
 端点：`hqeda_endpoint.resolveEndpoint`（样例经 `helper.resolveEndpoint`）。  
