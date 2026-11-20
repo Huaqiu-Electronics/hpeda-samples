@@ -4,7 +4,7 @@
 //
 //	go-load Samples/Scripts/Go/09_action_route
 //
-// 纸面 mm：VCC via @ (18,-15)；途经点/打孔点 @ (28,-10)。
+// 连接：NewClientFactory().Connect（宿主桥）；开板：cli.WsOpen（与 SDK 同名）。
 package main
 
 import (
@@ -28,7 +28,7 @@ func envInt(key string, def int) int {
 	return n
 }
 
-func resolveBoard() (string, error) {
+func resolveBoard(cli *hqeda.ClientFactory) (string, error) {
 	if p := os.Getenv("PCB_BOARD"); p != "" {
 		return p, nil
 	}
@@ -49,40 +49,45 @@ func resolveBoard() (string, error) {
 	return "", fmt.Errorf("board sample not found; set PCB_BOARD to an absolute .hqpcb path")
 }
 
-func pause(stepMs int) {
-	_, _ = hqeda.Cmdlet(fmt.Sprintf("sleep.ms %d", stepMs))
-}
-
 func main() {
 	stepMs := envInt("PCB_STEP_MS", 60)
 	afterStart := envInt("PCB_AFTER_START_MS", 200)
 
-	board, err := resolveBoard()
+	cli := hqeda.NewClientFactory()
+	if err := cli.Connect("", true); err != nil {
+		hqeda.Log(err.Error())
+		os.Exit(1)
+	}
+
+	pause := func() {
+		_, _ = hqeda.Cmdlet(fmt.Sprintf("sleep.ms %d", stepMs))
+	}
+
+	board, err := resolveBoard(cli)
 	if err != nil {
 		hqeda.Log(err.Error())
 		os.Exit(1)
 	}
 	hqeda.Log(";; open " + board)
-	if _, err := hqeda.ProjectOpen(board, hqeda.ProjectOpenOpts{}); err != nil {
+	if _, err := cli.WsOpen(board); err != nil {
 		hqeda.Log(err.Error())
 		os.Exit(1)
 	}
-	pause(stepMs)
+	pause()
 	_, _ = hqeda.Cmdlet("rasternext.wait_open_follow 30000")
-	pause(stepMs)
+	pause()
 	_, _ = hqeda.Cmdlet("zoomall")
-	pause(stepMs)
+	pause()
 
 	cur, _ := hqeda.Cmdlet("action.current")
 	hqeda.Log(";; action-current (before) = " + cur)
-	// 先切到 Conductor1（传层名），避免 From/To 在底层倒置导致末点 dbclick 打孔失败。
 	_, _ = hqeda.Cmdlet("layer_schema.select Conductor1")
-	pause(stepMs)
+	pause()
 	if _, err := hqeda.Cmdlet("action.start route"); err != nil {
 		hqeda.Log(err.Error())
 		os.Exit(1)
 	}
-	pause(stepMs)
+	pause()
 	cur, _ = hqeda.Cmdlet("action.current")
 	hqeda.Log(";; action-current (after start) = " + cur)
 
@@ -90,23 +95,22 @@ func main() {
 	_, _ = hqeda.Cmdlet("action.input move 18 -15")
 	_, _ = hqeda.Cmdlet(fmt.Sprintf("sleep.ms %d", 80))
 	_, _ = hqeda.Cmdlet("action.input click 18 -15")
-	pause(stepMs)
+	pause()
 	_, _ = hqeda.Cmdlet(fmt.Sprintf("sleep.ms %d", afterStart))
 
 	_, _ = hqeda.Cmdlet("action.input move-line 18 -15 28 -10 10")
 	_, _ = hqeda.Cmdlet("action.input click 28 -10")
-	pause(stepMs)
+	pause()
 
-	// 末点 dbclick：双击打 via。
 	_, _ = hqeda.Cmdlet("action.input dbclick 28 -10")
-	pause(stepMs)
+	pause()
 
 	_, _ = hqeda.Cmdlet("action.cancel")
-	pause(stepMs)
+	pause()
 
 	cur, _ = hqeda.Cmdlet("action.current")
 	hqeda.Log(";; action-current (after via+cancel) = " + cur)
 	_, _ = hqeda.Cmdlet("zoomall")
-	pause(stepMs)
+	pause()
 	hqeda.Log(";; done: routed via (18,-15)→(28,-10) + dblclick via + cancel + zoomall")
 }

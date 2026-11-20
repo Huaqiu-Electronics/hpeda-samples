@@ -4,13 +4,14 @@
  * Usage:
  *   js-load Samples/Scripts/Js/09_action_route.js
  *
- * 纸面 mm：VCC via @ (18,-15)；途经点/打孔点 @ (28,-10)。
+ * 连接：脚本模式 createClientFactory().connect()（宿主桥）；
+ * 开板：cli.wsOpen（与 SDK ClientFactory 同名）。
  */
 "use strict";
 
 const fs = require("fs");
 const path = require("path");
-const pcb = require("pcb_host");
+const { createClientFactory } = require("hqeda_client");
 
 const STEP_MS = Number(process.env.PCB_STEP_MS || 60);
 const AFTER_START_MS = Number(process.env.PCB_AFTER_START_MS || 200);
@@ -37,45 +38,46 @@ function resolveBoard() {
   throw new Error("board sample not found; set PCB_BOARD to an absolute .hqpcb path");
 }
 
+const cli = createClientFactory();
+cli.connect();
+
 function pause() {
-  pcb.sleepMs(STEP_MS);
+  cli.sleepMs(STEP_MS);
 }
 
 const board = resolveBoard();
-pcb.log(";; open " + board);
-pcb.cmdlet("project.open path=" + encodeURIComponent(board));
+cli.log(";; open " + board);
+cli.wsOpen(board);
 pause();
-pcb.cmdlet("rasternext.wait_open_follow 30000");
+cli.cmdlet("rasternext.wait_open_follow 30000");
 pause();
-pcb.cmdlet("zoomall");
-pause();
-
-pcb.log(";; action-current (before) = " + pcb.cmdlet("action.current"));
-// 先切到 Conductor1（传层名），避免 From/To 在底层倒置导致末点 dbclick 打孔失败。
-pcb.cmdlet("layer_schema.select Conductor1");
-pcb.cmdlet("action.start route");
-pause();
-pcb.log(";; action-current (after start) = " + pcb.cmdlet("action.current"));
-
-pcb.cmdlet("action.input move-line 6 -6 18 -15 8");
-pcb.cmdlet("action.input move 18 -15");
-pcb.sleepMs(80);
-pcb.cmdlet("action.input click 18 -15");
-pause();
-pcb.sleepMs(AFTER_START_MS);
-
-pcb.cmdlet("action.input move-line 18 -15 28 -10 10");
-pcb.cmdlet("action.input click 28 -10");
+cli.cmdlet("zoomall");
 pause();
 
-// 末点 dbclick：双击打 via。
-pcb.cmdlet("action.input dbclick 28 -10");
+cli.log(";; action-current (before) = " + cli.cmdlet("action.current"));
+cli.cmdlet("layer_schema.select Conductor1");
+cli.cmdlet("action.start route");
+pause();
+cli.log(";; action-current (after start) = " + cli.cmdlet("action.current"));
+
+cli.cmdlet("action.input move-line 6 -6 18 -15 8");
+cli.cmdlet("action.input move 18 -15");
+cli.sleepMs(80);
+cli.cmdlet("action.input click 18 -15");
+pause();
+cli.sleepMs(AFTER_START_MS);
+
+cli.cmdlet("action.input move-line 18 -15 28 -10 10");
+cli.cmdlet("action.input click 28 -10");
 pause();
 
-pcb.cmdlet("action.cancel");
+cli.cmdlet("action.input dbclick 28 -10");
 pause();
 
-pcb.log(";; action-current (after via+cancel) = " + pcb.cmdlet("action.current"));
-pcb.cmdlet("zoomall");
+cli.cmdlet("action.cancel");
 pause();
-pcb.log(";; done: routed via (18,-15)→(28,-10) + dblclick via + cancel + zoomall");
+
+cli.log(";; action-current (after via+cancel) = " + cli.cmdlet("action.current"));
+cli.cmdlet("zoomall");
+pause();
+cli.log(";; done: routed via (18,-15)→(28,-10) + dblclick via + cancel + zoomall");

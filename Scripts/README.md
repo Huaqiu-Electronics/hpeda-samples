@@ -27,9 +27,11 @@ js-load path=Samples/Scripts/Js/01_hello.js
 | Cmdlet | 运行时 |
 |--------|--------|
 | `lisp-load` | 进程内 HQ-LISP Session |
-| `js-load` | 随包 Node；宿主注入 `pcb_host`（`Resources/script_host`） |
-| `python-load` | 随包 Python；同上宿主桥 |
+| `js-load` | 随包 Node；宿主注入 `hqeda_client` |
+| `python-load` | 随包 Python；同上 |
 | `go-load` | `script.go.run` 短别名（TinyGo WASI；需 `PCB_ENABLE_GOSCRIPT=ON`） |
+
+**连接 vs 后续 API**：脚本模式 `connect` / `Connect` 走 `PCB_HOST_DIR` 宿主桥（与 SDK Flight socket 不同）；连接之后的方法名与语义以 Flight `ClientFactory` 为准（`wsOpen` / `doAction` / `ping` / `caps` 等）。UI 自动化等 Flight 未覆盖能力仍用 `cli.cmdlet(...)` 逃生舱。
 
 交互脚本经宿主 cmdlet：`action.start` / `action.input` / `action.current` / `sleep.ms`。
 
