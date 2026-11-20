@@ -8,7 +8,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"strconv"
 
@@ -95,7 +94,7 @@ func main() {
 		hqeda.Log(err.Error())
 		os.Exit(1)
 	}
-	hqeda.Log(fmt.Sprintf(";; pick ids = %v", pickIds))
+	hqeda.Log(";; pick ids = %v", pickIds)
 	if len(pickIds) == 0 {
 		hqeda.Log("pick miss at (12,-20)")
 		os.Exit(1)
