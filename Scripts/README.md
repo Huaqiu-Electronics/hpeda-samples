@@ -18,6 +18,15 @@ python-load Samples/Scripts/Python/09_action_route.py
 go-load     Samples/Scripts/Go/09_action_route
 ```
 
+拾取 / Highlight / Lock（对齐 `10_pick_highlight_lock.lsp`；菜单 View/Highlight、Edit/Lock）：
+
+```text
+lisp-load   Samples/Scripts/Lisp/10_pick_highlight_lock.lsp
+js-load     Samples/Scripts/Js/10_pick_highlight_lock.js
+python-load Samples/Scripts/Python/10_pick_highlight_lock.py
+go-load     Samples/Scripts/Go/10_pick_highlight_lock
+```
+
 也可写 `path=`（路径含空格时推荐）：
 
 ```text

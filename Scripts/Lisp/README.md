@@ -21,6 +21,7 @@ mode lisp
 | `07_read_selection.lsp` | **交互读取**：画布选中对象后打印 `(entity-get id)` |
 | `08_action_line.lsp` | **交互动作**：两点 click 后 `(action-input 'command "enter")` 提交（勿先 cancel） |
 | `09_action_route.lsp` | **走线**：`(open-and-wait …)` → `route` → `(action-input 'move-line/'click/'dbclick)` → cancel → `zoomall` |
+| `10_pick_highlight_lock.lsp` | **拾取/高亮/锁定**：`rasternext.pick` → `highlight`/`dehighlight` → `lock`/`unlock` → `hide_items` |
 
 ## 打开 PCB 与读取（推荐流程）
 
@@ -53,6 +54,12 @@ lisp-load Samples/Scripts/Lisp/08_action_line.lsp
 
 ```text
 lisp-load Samples/Scripts/Lisp/09_action_route.lsp
+```
+
+5. （可选）拾取后走菜单同链 Highlight / Lock（再 hide）：
+
+```text
+lisp-load Samples/Scripts/Lisp/10_pick_highlight_lock.lsp
 ```
 
 路径须落在 Session load 白名单（工程根、仓库根、`Scripts/`、`Samples/Scripts/Lisp`、应用目录等）。`(pcb-resolve)` / `lisp-load` 相对路径**优先白名单根且优先非空文件**，再回退 cwd，因此在 `.app` 内启动时仍可写：

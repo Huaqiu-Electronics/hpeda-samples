@@ -1,71 +1,36 @@
 # -*- coding: utf-8 -*-
-"""对齐 Lisp 09_action_route：route → 途经点 → 末点再点打 via → cancel 退出 → zoomall。
+"""对齐 Js 09_action_route：route → 锁角/线宽 → 起点 → dbclick via → cancel → save。
 
 Usage:
   python-load Samples/Scripts/Python/09_action_route.py
-
-连接：new_connection（宿主桥）；开板：cli.open（与 SDK 同名）。
 """
 
 from __future__ import annotations
 
-import os
-
 from hqeda_client import new_connection
-
-STEP_MS = int(os.environ.get("PCB_STEP_MS", "60"))
-AFTER_START_MS = int(os.environ.get("PCB_AFTER_START_MS", "200"))
 
 
 def main() -> None:
     cli = new_connection(True)
+    board = cli.resolve_file("Samples/Boards/hqpcbx/01_tracks_vias.hqpcbx")
 
-    board = os.environ.get("PCB_BOARD", "").strip() or cli.resolve_file(
-        "Samples/Boards/hqpcbx/01_tracks_vias.hqpcbx"
-    )
-    cli.log(f";; open {board}")
     cli.open_and_wait(board, 30000)
-    cli.sleep_ms(STEP_MS)
     cli.zoom_all()
-    cli.sleep_ms(STEP_MS)
-
-    cli.log(";; action-current (before) = " + cli.current_action())
     cli.select_layer("Conductor1")
     cli.start_action("route")
-    cli.sleep_ms(STEP_MS)
-    cli.log(";; action-current (after start) = " + cli.current_action())
 
-    cli.mouse_move_ex(6, -6, 18, -15, 8)
-    cli.sleep_ms(80)
+    # Angle Lock → 90°（index=1）；Line width → 0.4mm。
+    cli.set_action_param("angleLock", 1)
+    cli.set_action_param("lineWidth", 0.4)
+
+    cli.mouse_move_ex(0, 0, 18, -15, 8)
     cli.mouse_click(18, -15)
-    cli.sleep_ms(STEP_MS)
-    cli.sleep_ms(AFTER_START_MS)
-
     cli.mouse_move_ex(18, -15, 28, -10, 10)
-    cli.mouse_click(28, -10)
-    cli.sleep_ms(STEP_MS)
-
     cli.mouse_db_click(28, -10)
-    cli.sleep_ms(STEP_MS)
 
     cli.cancel_action()
-    cli.sleep_ms(STEP_MS)
-
-    cli.log(";; action-current (after via+cancel) = " + cli.current_action())
+    cli.save()
     cli.zoom_all()
-    cli.sleep_ms(STEP_MS)
-
-    # Pick 测试：选中 (12,-20) 走线，再 hide_items（内部 setStaticObjectsVisibleByIds）。
-    cli.log(";; pick test at (12,-20)")
-    pick_ids = cli.pick_at(12, -20)
-    cli.log(f";; pick ids = {pick_ids}")
-    if not pick_ids:
-        raise RuntimeError("pick miss at (12,-20)")
-    hide_out = cli.hide_items(pick_ids)
-    cli.log(f";; hide_items = {hide_out}")
-    cli.sleep_ms(STEP_MS)
-
-    cli.log(";; done: route + pick(12,-20) + hide_items")
 
 
 if __name__ == "__main__":
