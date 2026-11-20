@@ -50,4 +50,16 @@ cli.sleepMs(STEP_MS);
 cli.log(";; action-current (after via+cancel) = " + cli.currentAction());
 cli.zoomAll();
 cli.sleepMs(STEP_MS);
-cli.log(";; done: routed via (18,-15)→(28,-10) + dblclick via + cancel + zoomall");
+
+// Pick 测试：选中文档坐标 (12,-20) 处走线，再 hideItems（内部 setStaticObjectsVisibleByIds）。
+cli.log(";; pick test at (12,-20)");
+const pickIds = cli.pickAt(12, -20);
+cli.log(";; pick ids = " + JSON.stringify(pickIds));
+if (!pickIds.length) {
+  throw new Error("pick miss at (12,-20)");
+}
+const hideOut = cli.hideItems(pickIds);
+cli.log(";; hideItems = " + hideOut);
+cli.sleepMs(STEP_MS);
+
+cli.log(";; done: route + pick(12,-20) + hideItems");

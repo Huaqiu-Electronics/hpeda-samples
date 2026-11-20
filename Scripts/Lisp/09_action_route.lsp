@@ -91,5 +91,18 @@
 (zoom-all)
 (sleep-ms *step-ms*)
 
-(display ";; done: routed via (18,-15)→(28,-10) + dblclick via + cancel + zoomall")
+;; Pick 测试：选中文档坐标 (12,-20) 处走线，再 hide_items（内部 setStaticObjectsVisibleByIds）。
+(display ";; pick test at (12,-20)")
+(newline)
+(define *pick-out* (cmdlet "rasternext.pick 12 -20"))
+(display ";; pick = ")
+(display *pick-out*)
+(newline)
+(define *hide-out* (cmdlet "rasternext.hide_items selection"))
+(display ";; hide_items = ")
+(display *hide-out*)
+(newline)
+(sleep-ms *step-ms*)
+
+(display ";; done: route + pick(12,-20) + hide_items")
 (newline)

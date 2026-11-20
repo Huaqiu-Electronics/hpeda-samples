@@ -54,7 +54,18 @@ def main() -> None:
     cli.log(";; action-current (after via+cancel) = " + cli.current_action())
     cli.zoom_all()
     cli.sleep_ms(STEP_MS)
-    cli.log(";; done: routed via (18,-15)→(28,-10) + dblclick via + cancel + zoomall")
+
+    # Pick 测试：选中 (12,-20) 走线，再 hide_items（内部 setStaticObjectsVisibleByIds）。
+    cli.log(";; pick test at (12,-20)")
+    pick_ids = cli.pick_at(12, -20)
+    cli.log(f";; pick ids = {pick_ids}")
+    if not pick_ids:
+        raise RuntimeError("pick miss at (12,-20)")
+    hide_out = cli.hide_items(pick_ids)
+    cli.log(f";; hide_items = {hide_out}")
+    cli.sleep_ms(STEP_MS)
+
+    cli.log(";; done: route + pick(12,-20) + hide_items")
 
 
 if __name__ == "__main__":

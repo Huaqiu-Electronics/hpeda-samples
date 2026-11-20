@@ -8,6 +8,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"strconv"
 
@@ -86,5 +87,26 @@ func main() {
 	hqeda.Log(";; action-current (after via+cancel) = " + cur)
 	_ = hqeda.ZoomAll()
 	_ = cli.SleepMs(stepMs)
-	hqeda.Log(";; done: routed via (18,-15)→(28,-10) + dblclick via + cancel + zoomall")
+
+	// Pick 测试：选中 (12,-20) 走线，再 HideItems（内部 setStaticObjectsVisibleByIds）。
+	hqeda.Log(";; pick test at (12,-20)")
+	pickIds, err := cli.PickAt(12, -20)
+	if err != nil {
+		hqeda.Log(err.Error())
+		os.Exit(1)
+	}
+	hqeda.Log(fmt.Sprintf(";; pick ids = %v", pickIds))
+	if len(pickIds) == 0 {
+		hqeda.Log("pick miss at (12,-20)")
+		os.Exit(1)
+	}
+	hideOut, err := cli.HideItems(pickIds)
+	if err != nil {
+		hqeda.Log(err.Error())
+		os.Exit(1)
+	}
+	hqeda.Log(";; hideItems = " + hideOut)
+	_ = cli.SleepMs(stepMs)
+
+	hqeda.Log(";; done: route + pick(12,-20) + hideItems")
 }
