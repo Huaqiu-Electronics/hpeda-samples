@@ -27,6 +27,25 @@ python-load Samples/Scripts/Python/10_pick_highlight_lock.py
 go-load     Samples/Scripts/Go/10_pick_highlight_lock
 ```
 
+选择文件再开板（`chooseFile` / `choose_file` / `ChooseFile` / `(choose-file)` → `file.choose`）：
+
+```text
+lisp-load   Samples/Scripts/Lisp/11_choose_file.lsp
+js-load     Samples/Scripts/Js/11_choose_file.js
+python-load Samples/Scripts/Python/11_choose_file.py
+go-load     Samples/Scripts/Go/11_choose_file
+```
+
+自定义小程序对话框开板（小程序在各语言 `12_mp_open_board/` 目录内，与主脚本双向交互）：
+
+```text
+js-load     Samples/Scripts/Js/12_mp_open_board/12_mp_open_board.js
+python-load Samples/Scripts/Python/12_mp_open_board/12_mp_open_board.py
+go-load     Samples/Scripts/Go/12_mp_open_board
+```
+
+流程：`loadplugin` 本目录 → `mp.slot.clear` + `mp.slot.put prompt=…`（脚本→对话框）→ 打开对话框 → 用户 Browse/OK → `mp.slot.put result=` + `finish`（对话框→脚本）→ `mp.slot.wait` 取路径 → 脚本 `openAndWait`。Cancel 走 `mp.slot.cancel`。
+
 也可写 `path=`（路径含空格时推荐）：
 
 ```text

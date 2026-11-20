@@ -1,0 +1,9 @@
+id: sample.script.js.mp_open_board
+name: Script Js MP Open Board
+version: 1.0.0
+runtime: javascript
+entry:
+  - plugin.js
+execution: in_process
+pages:
+  open_board: pages/open_board/open_board

@@ -1,0 +1,13 @@
+title: "打开工程（小程序）"
+modal: true
+statusText: script.mp.openboard
+scroll:
+  enabled: true
+  vertical: auto
+  horizontal: off
+data:
+  hero: "脚本 ↔ 小程序"
+  blurb: "主脚本经 mp.slot.put prompt=… 传入提示；本页 Browse 后 Open 把路径 put 到 result 并 finish，由脚本开板。"
+  prompt: "请选择 .hqpcb / .hqpcbx"
+  boardPath: ""
+  status: "等待脚本 / 用户操作"

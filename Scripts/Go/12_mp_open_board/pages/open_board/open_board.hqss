@@ -1,0 +1,30 @@
+:root { --hqml-spacing: 10px; }
+button { background: #1d4ed8; color: #ffffff; }
+button.secondary { background: #64748b; }
+.hero { font-weight: 600; font-size: 1.1em; }
+.sub  { opacity: 0.85; }
+.prompt { margin-top: 8px; color: #1d4ed8; font-weight: 500; }
+.section {
+  margin-top: 14px; padding: 10px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 6px;
+}
+.title { font-weight: 600; margin-bottom: 6px; }
+.path {
+  font-family: monospace;
+  font-size: 0.85em;
+  white-space: pre-wrap;
+  word-break: break-all;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 4px;
+  min-height: 2.4em;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 10px;
+}
+.status { margin-top: 10px; opacity: 0.9; }

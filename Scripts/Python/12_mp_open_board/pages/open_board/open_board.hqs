@@ -1,0 +1,104 @@
+/**
+ * @file open_board.hqs
+ * @brief 与主脚本交互：展示 prompt，Browse 选文件，Open 经 mp.slot 回传路径（不直接开板）。
+ */
+Page({
+  data: {},
+
+  onLoad(option) {
+    console.log("[open_board] Page.onLoad", option);
+    var self = this;
+    // 优先用打开时注入的 prompt；也可再读槽。
+    if (this.hqc && typeof this.hqc.slotGet === "function") {
+      this.hqc.slotGet("prompt").then(
+        function (text) {
+          var t = String(text || "").trim();
+          if (t) {
+            self.setData({ prompt: t, status: t });
+          }
+        },
+        function () {}
+      );
+    }
+  },
+
+  methods: {
+    browseBoard() {
+      var self = this;
+      hq.chooseFile({
+        title: "选择工程 / 板文件",
+        accept: "*.hqpcb *.hqpcbx",
+        success: function (res) {
+          var f = res && res.files && res.files[0];
+          if (!f || !f.path) {
+            self.setData({ status: "未选到有效路径" });
+            return;
+          }
+          self.setData({
+            boardPath: String(f.path),
+            status: "已选择：" + String(f.name || f.path),
+          });
+        },
+        fail: function () {
+          self.setData({ status: "已取消选择" });
+        },
+      });
+    },
+
+    clearPath() {
+      this.setData({
+        boardPath: "",
+        status: String(this.data.prompt || "请选择 .hqpcb / .hqpcbx"),
+      });
+    },
+
+    confirmOpen() {
+      var self = this;
+      var path = String(this.data.boardPath || "").trim();
+      if (!path) {
+        this.setData({ status: "请先 Browse 选择文件" });
+        return;
+      }
+      if (!this.hqc || typeof this.hqc.slotPut !== "function") {
+        this.setData({ status: "hqc.slotPut 不可用" });
+        return;
+      }
+      this.setData({ status: "回传路径给脚本…" });
+      this.hqc.slotPut("result", path).then(
+        function () {
+          return self.hqc.slotFinish();
+        },
+        function (err) {
+          self.setData({
+            status: "slotPut 失败：" + String(err && err.message ? err.message : err),
+          });
+        }
+      ).then(
+        function () {
+          if (self.dlg && typeof self.dlg.close === "function") {
+            self.dlg.close();
+          }
+        },
+        function (err) {
+          self.setData({
+            status: "slotFinish 失败：" + String(err && err.message ? err.message : err),
+          });
+        }
+      );
+    },
+
+    cancelClose() {
+      var self = this;
+      var closeDlg = function () {
+        if (self.dlg && typeof self.dlg.close === "function") {
+          self.dlg.close();
+        }
+      };
+      if (this.hqc && typeof this.hqc.slotCancel === "function") {
+        this.hqc.slotCancel().then(closeDlg, closeDlg);
+        return;
+      }
+      closeDlg();
+    },
+  },
+});

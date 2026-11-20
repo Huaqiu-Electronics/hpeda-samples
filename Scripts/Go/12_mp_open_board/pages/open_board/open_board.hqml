@@ -1,0 +1,22 @@
+<div>
+  <p class="hero">{{ hero }}</p>
+  <p class="sub">{{ blurb }}</p>
+  <p class="prompt">{{ prompt }}</p>
+
+  <div class="section">
+    <p class="title">工程路径</p>
+    <p class="path">{{ boardPath }}</p>
+    <div class="row">
+      <button on-click="browseBoard">Browse…</button>
+      <button class="secondary" on-click="clearPath">Clear</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="row">
+      <button on-click="confirmOpen">OK（回传脚本）</button>
+      <button class="secondary" on-click="cancelClose">Cancel</button>
+    </div>
+    <p class="status">{{ status }}</p>
+  </div>
+</div>
