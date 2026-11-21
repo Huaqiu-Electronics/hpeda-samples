@@ -203,7 +203,7 @@ begin:global|id:INTEGER:-1|key:TEXT:''|value:TEXT:''
 19|19|RF-0.2
 20|20|RF-0.2
 21|21|RF-0.2
-27|DesignFilePath|/private/var/folders/vw/574c6h5j31742wf00nsmxlth0000gn/T/HQPCB-convert/07_custom_pads_curves-fc04b9c88d3244b6ba321ec93b5f077c.hqpcb
+27|DesignFilePath|/private/var/folders/vw/574c6h5j31742wf00nsmxlth0000gn/T/HQPCB-convert/07_custom_pads_curves-f21a6c95bb0b4d2c946b9fb55c86914a.hqpcb
 28|ViewGray|false
 29|DesignReadOnly|0
 end:global
@@ -273,7 +273,7 @@ begin:layer_configuration|id:INTEGER:-1|name:TEXT:''|mode:INTEGER:0|last_mode:IN
 3003|Pin Hole|2|||5|1|2|56|128|54|128|1
 3004|Mechanical Hole|2|||5|1|2|56|128|54|128|1
 3005|Testpoint Hole|2|||5|1|2|56|128|54|128|1
-3006|Backdrill Hole|2|||5|1|2|252|120|207|191|1
+3006|Backdrill Hole|2|||5|1|2|246|109|158|191|1
 3007|Panel Outline|1|||5|1|2|160|35|138|128|1
 3008|Zone Outline|1|||5|1|2|224|137|18|128|1
 3009|Bend Area|2|||5|1|2|22|251|98|128|1
@@ -285,10 +285,10 @@ begin:layer_configuration|id:INTEGER:-1|name:TEXT:''|mode:INTEGER:0|last_mode:IN
 4002|Height Area|1|||5|1|2|61|12|75|128|1
 4003|Rule Area|1|||5|1|2|97|29|206|128
 4004|Polar Grid|2|||5|1|2|11|144|229|128
-4005|Component Group Top|2|||5|1|2|171|72|157|191|1
-4006|Component Group Bottom|2|||5|1|2|1|232|131|191|1
-5000|Keepout1|1|||5|1|2|224|218|83|191
-5001|Keepout2|1|||5|1|2|44|91|74|191
+4005|Component Group Top|2|||5|1|2|82|150|77|191|1
+4006|Component Group Bottom|2|||5|1|2|251|227|198|191|1
+5000|Keepout1|1|||5|1|2|166|63|244|191
+5001|Keepout2|1|||5|1|2|123|247|173|191
 6000|Dimension Top|2|||5|1|2|175|59|210|128
 6001|Dimension Bottom|2|||5|1|2|76|75|115|128
 6002|Prob Top|2|||5|1|2|65|72|206|128
@@ -308,12 +308,12 @@ begin:layer_configuration|id:INTEGER:-1|name:TEXT:''|mode:INTEGER:0|last_mode:IN
 7007|User Layer 8|2|||5|1|2|197|199|36|128|1
 7008|User Layer 9|2|||5|1|2|83|163|13|128|1
 7009|User Layer 10|2|||5|1|2|235|110|64|128|1
-7010|User Layer 11|2|||5|1|2|135|122|27|191|1
-7011|User Layer 12|2|||5|1|2|199|118|141|191|1
-7012|User Layer 13|2|||5|1|2|5|38|185|191|1
-7013|User Layer 14|2|||5|1|2|78|206|21|191|1
-7014|User Layer 15|2|||5|1|2|124|162|84|191|1
-7015|User Layer 16|2|||5|1|2|103|161|4|191|1
+7010|User Layer 11|2|||5|1|2|68|231|27|191|1
+7011|User Layer 12|2|||5|1|2|40|248|212|191|1
+7012|User Layer 13|2|||5|1|2|210|28|99|191|1
+7013|User Layer 14|2|||5|1|2|245|55|206|191|1
+7014|User Layer 15|2|||5|1|2|29|56|79|191|1
+7015|User Layer 16|2|||5|1|2|31|69|49|191|1
 end:layer_configuration
 begin:layer|id:INTEGER:-1|layer_id:INTEGER:0|cad_layer_name:TEXT:''|logical_layer_name:TEXT:''|layer_group:TEXT:''|is_conductor:INTEGER:0|conductor_index:INTEGER:0|is_visible:INTEGER:0
 3659174697238529||Conductor1|Conductor1|conductor|1||1
@@ -486,14 +486,14 @@ begin:project_actived_scheme|id:INTEGER:-1|group_name:TEXT:''|scheme_name:TEXT:'
 2|figure|Default
 end:project_actived_scheme
 begin:project_display_canvas|id:INTEGER:-1|dot:INTEGER:0|visible:INTEGER:0|snap:INTEGER:0|temp:INTEGER:0|offset_x:REAL:0.0|offset_y:REAL:0.0|color:INTEGER:0|library_dir:TEXT:''|update_time:INTEGER:0
-1|1|1|||||||1795146435038
+1|1|1|||||||1795229548427
 end:project_display_canvas
 begin:project_font|id:INTEGER:-1|display_name:TEXT:''|family_name:TEXT:''|format:TEXT:''|content_sha256:TEXT:''|face_index:INTEGER:0|font_local:INTEGER:0|weight:INTEGER:0|italic:INTEGER:0|data_blob:BLOB:\\b 
 end:project_font
 begin:project_library_pathes|id:INTEGER:-1|kind:TEXT:''|ordinal:INTEGER:0|path:TEXT:''|enable:INTEGER:0
 end:project_library_pathes
 begin:project_meta|key:TEXT:''|value:TEXT:''
-dict_generated|2026-11-20T02:10:46.068Z
+dict_generated|2026-11-20T06:43:02.850Z
 dict_init_script|pcb_v5_tables_initialization.sql
 dict_version|1.0
 file_summary|{"conductor_layers":2,"total_layers":57,"components":0,"nets":0,"pins":0,"vias":0}

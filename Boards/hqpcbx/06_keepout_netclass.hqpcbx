@@ -3,31 +3,25 @@ begin:area_figure_contour|id:INTEGER:-1|area_figure_id:INTEGER:0|contour_type:IN
 9288674231451680|1688849860263967|1
 9288674231451687|1688849860263974|1
 9288674231451694|1688849860263981|1
-9288674231451701|1688849860263988|1
 end:area_figure_contour
 begin:area_figure|id:INTEGER:-1|owner_type:INTEGER:0|obj_type:INTEGER:0|figure_type:INTEGER:0|figure_name:TEXT:''|geometry_type:INTEGER:0|layer_id:INTEGER:0|source_shape_type:INTEGER:0|usage_raw:TEXT:''|origin_x_mm:INTEGER:0|origin_y_mm:INTEGER:0|is_filled:INTEGER:0|is_locked:INTEGER:0|is_highlighted:INTEGER:0|width_mm:INTEGER:0|height_mm:INTEGER:0|diameter_mm:INTEGER:0|corner_radius_mm:INTEGER:0|rotation_deg:REAL:0.0|polygon_side_count:INTEGER:0|dash_style:TEXT:''|corner_usage:TEXT:''|raw_geom_json:TEXT:''
-1688849860263967||2|2|kicad_keepout_F.Cu|4||3|F.Cu|34000000|-24000000|1|||16000000|16000000|||||||{"keepoutRules":"tracks=not_allowed;vias=not_allowed;pads=allowed;copperpour=not_allowed;footprints=allowed"}
-1688849860263974||2|2|kicad_keepout_B.Cu|4|1|3|B.Cu|34000000|-24000000|1|||16000000|16000000|||||||{"keepoutRules":"tracks=not_allowed;vias=not_allowed;pads=allowed;copperpour=not_allowed;footprints=allowed"}
-1688849860263981||2|2|kicad_keepout_F.Cu|4||3|F.Cu|5000000|-38000000|1|||15000000|6000000|||||||{"keepoutRules":"tracks=allowed;vias=not_allowed;pads=not_allowed;copperpour=not_allowed;footprints=not_allowed"}
-1688849860263988||2|3|kicad_board_outline_0|4|3000|3|Edge.Cuts||-40000000||||55000000|40000000
+1688849860263967||2|2|kicad_keepout_F.Cu,B.Cu|4|5000|3|F.Cu,B.Cu|34000000|-24000000|1|||16000000|16000000|||||||{"keepoutRules":"tracks=not_allowed;vias=not_allowed;pads=allowed;copperpour=not_allowed;footprints=allowed"}
+1688849860263974||2|2|kicad_keepout_F.Cu|4|5000|3|F.Cu|5000000|-38000000|1|||15000000|6000000|||||||{"keepoutRules":"tracks=allowed;vias=not_allowed;pads=not_allowed;copperpour=not_allowed;footprints=not_allowed"}
+1688849860263981||2|3|kicad_board_outline_0|4|3000|3|Edge.Cuts||-40000000||||55000000|40000000
 end:area_figure
 begin:area_figure_segment|id:INTEGER:-1|contour_id:INTEGER:0|seq_no:INTEGER:0|segment_type:INTEGER:0|x1:INTEGER:0|y1:INTEGER:0|x2:INTEGER:0|y2:INTEGER:0|cx:INTEGER:0|cy:INTEGER:0|radius:INTEGER:0|clockwise:INTEGER:0
 9570149208162337|9288674231451680||1|34000000|-8000000|50000000|-8000000
 9570149208162338|9288674231451680|1|1|50000000|-8000000|50000000|-24000000
 9570149208162339|9288674231451680|2|1|50000000|-24000000|34000000|-24000000
 9570149208162340|9288674231451680|3|1|34000000|-24000000|34000000|-8000000
-9570149208162344|9288674231451687||1|34000000|-8000000|50000000|-8000000
-9570149208162345|9288674231451687|1|1|50000000|-8000000|50000000|-24000000
-9570149208162346|9288674231451687|2|1|50000000|-24000000|34000000|-24000000
-9570149208162347|9288674231451687|3|1|34000000|-24000000|34000000|-8000000
-9570149208162351|9288674231451694||1|5000000|-32000000|20000000|-32000000
-9570149208162352|9288674231451694|1|1|20000000|-32000000|20000000|-38000000
-9570149208162353|9288674231451694|2|1|20000000|-38000000|5000000|-38000000
-9570149208162354|9288674231451694|3|1|5000000|-38000000|5000000|-32000000
-9570149208162358|9288674231451701||1|||55000000
-9570149208162359|9288674231451701|1|1|55000000||55000000|-40000000
-9570149208162360|9288674231451701|2|1|55000000|-40000000||-40000000
-9570149208162361|9288674231451701|3|1||-40000000
+9570149208162344|9288674231451687||1|5000000|-32000000|20000000|-32000000
+9570149208162345|9288674231451687|1|1|20000000|-32000000|20000000|-38000000
+9570149208162346|9288674231451687|2|1|20000000|-38000000|5000000|-38000000
+9570149208162347|9288674231451687|3|1|5000000|-38000000|5000000|-32000000
+9570149208162351|9288674231451694||1|||55000000
+9570149208162352|9288674231451694|1|1|55000000||55000000|-40000000
+9570149208162353|9288674231451694|2|1|55000000|-40000000||-40000000
+9570149208162354|9288674231451694|3|1||-40000000
 end:area_figure_segment
 begin:component_attribute|id:INTEGER:-1|attrScope:TEXT:''|attrName:TEXT:''|attrValue:TEXT:''|rawPair:TEXT:''
 end:component_attribute
@@ -73,11 +67,11 @@ begin:copper_pour_contour|id:INTEGER:-1|region_id:INTEGER:0|contour_type:INTEGER
 6192449487634442|6755399441055753|1||1
 end:copper_pour_contour
 begin:copper_pour|id:INTEGER:-1|owner_type:INTEGER:0|obj_type:INTEGER:0|shape_type:INTEGER:0|figure_name:TEXT:''|geometry_type:INTEGER:0|layer_id:INTEGER:0|is_filled:INTEGER:0|width_mm:INTEGER:0|height_mm:INTEGER:0|diameter_mm:INTEGER:0|corner_radius_mm:INTEGER:0|polygon_side_count:INTEGER:0|raw_geom_json:TEXT:''|net_id:INTEGER:0|is_locked:INTEGER:0|is_highlighted:INTEGER:0|zone_row_id:INTEGER:0|island_index:INTEGER:0|min_x:INTEGER:0|min_y:INTEGER:0|max_x:INTEGER:0|max_y:INTEGER:0|is_teardrop:INTEGER:0
-5910974510923835||2|1||4|1|1|25000000|16000000||||{"base":{"holes":[],"outline":{"points":[{"x":"28000000","y":"-8000000"},{"x":"3000000","y":"-8000000"},{"x":"3000000","y":"-24000000"},{"x":"28000000","y":"-24000000"}],"segments":[{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"3000000","y":"-8000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"28000000","y":"-8000000"},"start_angle":0,"sweep_angle":0},{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"3000000","y":"-24000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"3000000","y":"-8000000"},"start_angle":0,"sweep_angle":0},{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"28000000","y":"-24000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"3000000","y":"-24000000"},"start_angle":0,"sweep_angle":0},{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"28000000","y":"-8000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"28000000","y":"-24000000"},"start_angle":0,"sweep_angle":0}]}},"fill_diagnostic":"","fill_mode":1,"fill_options_json":"{\\"clearance\\":300000,\\"island_policy\\":\\"remove_unconnected\\",\\"min_width_mm\\":0.25,\\"sharp_radius_mm\\":0,\\"source_base_rule\\":\\"kicad:nonzero:v1\\",\\"source_kicad\\":{\\"connect_pads\\":[\\"connect_pads\\",\\"yes\\",[\\"clearance\\",\\"0.3\\"]],\\"file_version\\":20240108,\\"fill\\":[\\"fill\\",\\"yes\\",[\\"thermal_gap\\",\\"0.4\\"],[\\"thermal_bridge_width\\",\\"0.3\\"]],\\"hatch\\":[\\"hatch\\",\\"edge\\",\\"0.5\\"],\\"min_thickness\\":[\\"min_thickness\\",\\"0.25\\"]},\\"thermal\\":{\\"gap_mm\\":0.4,\\"smd\\":{\\"max\\":4,\\"min\\":0,\\"pattern\\":\\"full\\"},\\"through\\":{\\"max\\":4,\\"min\\":0,\\"pattern\\":\\"full\\"},\\"via\\":{\\"pattern\\":\\"full\\"},\\"width_mm\\":0.3}}","fill_state":2,"last_fill_revision":"1","netId":"1","options_hash":"574063f667e38bdf804e0df43e64224234e52ff2ca6565a00e73a8d3ede02c2e","pour_order":0,"priority":0,"revision":"1","rule_keys":"","schema":"pcb.copper.base.v1","update_mode":0}|1|||5910974510923835||3000000|-24000000|28000000|-8000000
+5910974510923828||2|1||4|1|1|25000000|16000000||||{"base":{"holes":[],"outline":{"points":[{"x":"28000000","y":"-8000000"},{"x":"3000000","y":"-8000000"},{"x":"3000000","y":"-24000000"},{"x":"28000000","y":"-24000000"}],"segments":[{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"3000000","y":"-8000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"28000000","y":"-8000000"},"start_angle":0,"sweep_angle":0},{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"3000000","y":"-24000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"3000000","y":"-8000000"},"start_angle":0,"sweep_angle":0},{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"28000000","y":"-24000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"3000000","y":"-24000000"},"start_angle":0,"sweep_angle":0},{"center":{"x":"0","y":"0"},"clockwise":false,"control1":{"x":"0","y":"0"},"control2":{"x":"0","y":"0"},"end":{"x":"28000000","y":"-8000000"},"extra":"","kind":1,"radius_x":"0","radius_y":"0","start":{"x":"28000000","y":"-24000000"},"start_angle":0,"sweep_angle":0}]}},"fill_diagnostic":"","fill_mode":1,"fill_options_json":"{\\"clearance\\":300000,\\"island_policy\\":\\"remove_unconnected\\",\\"min_width_mm\\":0.25,\\"sharp_radius_mm\\":0,\\"source_base_rule\\":\\"kicad:nonzero:v1\\",\\"source_kicad\\":{\\"connect_pads\\":[\\"connect_pads\\",\\"yes\\",[\\"clearance\\",\\"0.3\\"]],\\"file_version\\":20240108,\\"fill\\":[\\"fill\\",\\"yes\\",[\\"thermal_gap\\",\\"0.4\\"],[\\"thermal_bridge_width\\",\\"0.3\\"]],\\"hatch\\":[\\"hatch\\",\\"edge\\",\\"0.5\\"],\\"min_thickness\\":[\\"min_thickness\\",\\"0.25\\"]},\\"thermal\\":{\\"gap_mm\\":0.4,\\"smd\\":{\\"max\\":4,\\"min\\":0,\\"pattern\\":\\"full\\"},\\"through\\":{\\"max\\":4,\\"min\\":0,\\"pattern\\":\\"full\\"},\\"via\\":{\\"pattern\\":\\"full\\"},\\"width_mm\\":0.3}}","fill_state":2,"last_fill_revision":"1","netId":"1","options_hash":"574063f667e38bdf804e0df43e64224234e52ff2ca6565a00e73a8d3ede02c2e","pour_order":0,"priority":0,"revision":"1","rule_keys":"","schema":"pcb.copper.base.v1","update_mode":0}|1|||5910974510923828||3000000|-24000000|28000000|-8000000
 end:copper_pour
 begin:copper_pour_geometry|id:INTEGER:-1|pour_id:INTEGER:0|geom_role:TEXT:''|source_rev:INTEGER:0|generation:INTEGER:0|fill_state:INTEGER:0|options_hash:TEXT:''|diagnostic:TEXT:''|origin:TEXT:''
-6473924464345089|5910974510923835|BASE|1||1|574063f667e38bdf804e0df43e64224234e52ff2ca6565a00e73a8d3ede02c2e||import: normalized DTO
-6473924464345096|5910974510923835|ACTUAL|1|1|2|574063f667e38bdf804e0df43e64224234e52ff2ca6565a00e73a8d3ede02c2e||import: normalized DTO
+6473924464345089|5910974510923828|BASE|1||1|574063f667e38bdf804e0df43e64224234e52ff2ca6565a00e73a8d3ede02c2e||import: normalized DTO
+6473924464345096|5910974510923828|ACTUAL|1|1|2|574063f667e38bdf804e0df43e64224234e52ff2ca6565a00e73a8d3ede02c2e||import: normalized DTO
 end:copper_pour_geometry
 begin:copper_pour_region|id:INTEGER:-1|seq_no:INTEGER:0|geometry_id:INTEGER:0
 6755399441055746||6473924464345089
@@ -302,10 +296,10 @@ begin:designrule_space|id:INTEGER:-1|object1:INTEGER:0|object2:INTEGER:0|space:R
 196|11|10|0.5|1|EdgeClr0.5
 end:designrule_space
 begin:designrule_track_width|id:INTEGER:-1|layer:INTEGER:0|widthrulename:TEXT:''|defaultwidth:REAL:0.0|minwidth:REAL:0.0|maxwidth:REAL:0.0|neckwidth:REAL:0.0
-1||Wid0.5|0.5|0.5
-2|1|Wid0.5|0.5|0.5
-3||Wid0.2|0.20000000000000001|0.20000000000000001
-4|1|Wid0.2|0.20000000000000001|0.20000000000000001
+1||Wid0.2|0.20000000000000001|0.20000000000000001
+2|1|Wid0.2|0.20000000000000001|0.20000000000000001
+3||Wid0.5|0.5|0.5
+4|1|Wid0.5|0.5|0.5
 end:designrule_track_width
 begin:designrule_via|id:INTEGER:-1|padstackname:TEXT:''|isvia:INTEGER:0
 1|Via0.7x0.35|1
@@ -333,7 +327,7 @@ begin:global|id:INTEGER:-1|key:TEXT:''|value:TEXT:''
 20|20|RF-0.15
 21|21|RF-0.15
 26|26|kicad_via_0.9000_0.4500_0_1
-27|DesignFilePath|/private/var/folders/vw/574c6h5j31742wf00nsmxlth0000gn/T/HQPCB-convert/06_keepout_netclass-7175333edb6c4903a9055491210f3f60.hqpcb
+27|DesignFilePath|/private/var/folders/vw/574c6h5j31742wf00nsmxlth0000gn/T/HQPCB-convert/06_keepout_netclass-48e11d43283348e989e4e4628775948b.hqpcb
 28|ViewGray|false
 29|DesignReadOnly|0
 end:global
@@ -372,7 +366,7 @@ begin:layer_configuration|id:INTEGER:-1|name:TEXT:''|mode:INTEGER:0|last_mode:IN
 3003|Pin Hole|2|||5|1|2|56|128|54|128|1
 3004|Mechanical Hole|2|||5|1|2|56|128|54|128|1
 3005|Testpoint Hole|2|||5|1|2|56|128|54|128|1
-3006|Backdrill Hole|2|||5|1|2|229|135|75|191|1
+3006|Backdrill Hole|2|||5|1|2|196|79|20|191|1
 3007|Panel Outline|1|||5|1|2|160|35|138|128|1
 3008|Zone Outline|1|||5|1|2|224|137|18|128|1
 3009|Bend Area|2|||5|1|2|22|251|98|128|1
@@ -384,10 +378,10 @@ begin:layer_configuration|id:INTEGER:-1|name:TEXT:''|mode:INTEGER:0|last_mode:IN
 4002|Height Area|1|||5|1|2|61|12|75|128|1
 4003|Rule Area|1|||5|1|2|97|29|206|128
 4004|Polar Grid|2|||5|1|2|11|144|229|128
-4005|Component Group Top|2|||5|1|2|131|41|113|191|1
-4006|Component Group Bottom|2|||5|1|2|252|226|22|191|1
-5000|Keepout1|1|||5|1|2|34|235|47|191
-5001|Keepout2|1|||5|1|2|3|133|124|191
+4005|Component Group Top|2|||5|1|2|251|218|7|191|1
+4006|Component Group Bottom|2|||5|1|2|98|131|131|191|1
+5000|Keepout1|1|||5|1|2|175|254|155|191
+5001|Keepout2|1|||5|1|2|54|151|239|191
 6000|Dimension Top|2|||5|1|2|175|59|210|128
 6001|Dimension Bottom|2|||5|1|2|76|75|115|128
 6002|Prob Top|2|||5|1|2|65|72|206|128
@@ -407,12 +401,12 @@ begin:layer_configuration|id:INTEGER:-1|name:TEXT:''|mode:INTEGER:0|last_mode:IN
 7007|User Layer 8|2|||5|1|2|197|199|36|128|1
 7008|User Layer 9|2|||5|1|2|83|163|13|128|1
 7009|User Layer 10|2|||5|1|2|235|110|64|128|1
-7010|User Layer 11|2|||5|1|2|61|148|44|191|1
-7011|User Layer 12|2|||5|1|2|195|52|152|191|1
-7012|User Layer 13|2|||5|1|2|114|175|194|191|1
-7013|User Layer 14|2|||5|1|2|154|131||191|1
-7014|User Layer 15|2|||5|1|2|171|10|168|191|1
-7015|User Layer 16|2|||5|1|2|15|2|24|191|1
+7010|User Layer 11|2|||5|1|2|121|76|22|191|1
+7011|User Layer 12|2|||5|1|2|27|125|26|191|1
+7012|User Layer 13|2|||5|1|2|149|177|43|191|1
+7013|User Layer 14|2|||5|1|2|201|75|166|191|1
+7014|User Layer 15|2|||5|1|2|227|68|166|191|1
+7015|User Layer 16|2|||5|1|2|173|221|13|191|1
 end:layer_configuration
 begin:layer|id:INTEGER:-1|layer_id:INTEGER:0|cad_layer_name:TEXT:''|logical_layer_name:TEXT:''|layer_group:TEXT:''|is_conductor:INTEGER:0|conductor_index:INTEGER:0|is_visible:INTEGER:0
 3659174697238529||Conductor1|Conductor1|conductor|1||1
@@ -493,13 +487,13 @@ begin:net_node|id:INTEGER:-1|nodeType:INTEGER:0|refdes:TEXT:''|pinNumber:TEXT:''
 end:net_node
 begin:object_node|id:INTEGER:-1|object_id:INTEGER:0|parent_node_id:INTEGER:0|sort_order:INTEGER:0
 5066549580791814|7881299347898373||1
-5066549580791815|8725724278030340|5066549580791814|2
+5066549580791815|8725724278030337|5066549580791814|2
 5066549580791817|7881299347898376||3
-5066549580791818|8725724278030339|5066549580791817|4
+5066549580791818|8725724278030340|5066549580791817|4
 5066549580791820|7881299347898379||5
-5066549580791821|8725724278030337|5066549580791820|6
+5066549580791821|8725724278030338|5066549580791820|6
 5066549580791823|7881299347898382||7
-5066549580791824|8725724278030338|5066549580791823|8
+5066549580791824|8725724278030339|5066549580791823|8
 5066549580791827|562949953421330||9
 5066549580791829|1407374883553300|5066549580791827|10
 5066549580791831|1407374883553302|5066549580791827|11
@@ -510,8 +504,7 @@ begin:object_node|id:INTEGER:-1|object_id:INTEGER:0|parent_node_id:INTEGER:0|sor
 5066549580791845|1688849860263967||16
 5066549580791852|1688849860263974||17
 5066549580791859|1688849860263981||18
-5066549580791866|1688849860263988||19
-5066549580791868|5910974510923835
+5066549580791861|5910974510923828
 end:object_node
 begin:objects|id:TEXT:''|kind:TEXT:''|revision:INTEGER:0|layer_id:TEXT:''|net_id:TEXT:''|owner_id:TEXT:''|definition_id:TEXT:''|flags:INTEGER:0|payload_version:INTEGER:0|payload_codec:TEXT:''|header_blob:BLOB:\\b |data_blob:BLOB:\\b 
 end:objects
@@ -527,14 +520,14 @@ begin:project_actived_scheme|id:INTEGER:-1|group_name:TEXT:''|scheme_name:TEXT:'
 2|figure|Default
 end:project_actived_scheme
 begin:project_display_canvas|id:INTEGER:-1|dot:INTEGER:0|visible:INTEGER:0|snap:INTEGER:0|temp:INTEGER:0|offset_x:REAL:0.0|offset_y:REAL:0.0|color:INTEGER:0|library_dir:TEXT:''|update_time:INTEGER:0
-1|1|1|||||||1795146424509
+1|1|1|||||||1795229537858
 end:project_display_canvas
 begin:project_font|id:INTEGER:-1|display_name:TEXT:''|family_name:TEXT:''|format:TEXT:''|content_sha256:TEXT:''|face_index:INTEGER:0|font_local:INTEGER:0|weight:INTEGER:0|italic:INTEGER:0|data_blob:BLOB:\\b 
 end:project_font
 begin:project_library_pathes|id:INTEGER:-1|kind:TEXT:''|ordinal:INTEGER:0|path:TEXT:''|enable:INTEGER:0
 end:project_library_pathes
 begin:project_meta|key:TEXT:''|value:TEXT:''
-dict_generated|2026-11-20T02:10:46.068Z
+dict_generated|2026-11-20T06:43:02.850Z
 dict_init_script|pcb_v5_tables_initialization.sql
 dict_version|1.0
 file_summary|{"conductor_layers":2,"total_layers":57,"components":0,"nets":0,"pins":0,"vias":0}
@@ -563,10 +556,10 @@ end:symbol_pin_def
 begin:trace_path_connection|id:INTEGER:-1|connType:INTEGER:0|connCount:INTEGER:0
 end:trace_path_connection
 begin:trace_path|id:INTEGER:-1|net_id:INTEGER:0|branch_key:TEXT:''|layer_id:INTEGER:0|width_mm:INTEGER:0|is_etch:INTEGER:0|is_fixed:INTEGER:0|is_locked:INTEGER:0|is_read_only:INTEGER:0|segment_count:INTEGER:0|x1_mm:INTEGER:0|y1_mm:INTEGER:0|x2_mm:INTEGER:0|y2_mm:INTEGER:0|prop_raw:TEXT:''
-7881299347898373|2||1|500000|||||1|25000000|-28000000|40000000|-28000000
-7881299347898376|2|||500000|||||1|5000000|-28000000|25000000|-28000000
-7881299347898379|4|||200000|||||1|5000000|-12000000|20000000|-12000000
-7881299347898382|3|||200000|||||1|5000000|-14000000|20000000|-14000000
+7881299347898373|4|||200000|||||1|5000000|-12000000|20000000|-12000000
+7881299347898376|2||1|500000|||||1|25000000|-28000000|40000000|-28000000
+7881299347898379|3|||200000|||||1|5000000|-14000000|20000000|-14000000
+7881299347898382|2|||500000|||||1|5000000|-28000000|25000000|-28000000
 end:trace_path
 begin:trace_path_endpoint|id:INTEGER:-1|endpointRole:TEXT:''|targetType:INTEGER:0|xMm:TEXT:''|yMm:TEXT:''
 end:trace_path_endpoint
