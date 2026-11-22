@@ -23,6 +23,7 @@ mode lisp
 | `09_action_route.lsp` | **走线**：`(open-and-wait …)` → `route` → `(action-input 'move-line/'click/'dbclick)` → cancel → `zoomall` |
 | `10_pick_highlight_lock.lsp` | **拾取/高亮/锁定**：`rasternext.pick` → `highlight`/`dehighlight` → `lock`/`unlock` → `hide_items` |
 | `11_choose_file.lsp` | **选文件开板**：`(choose-file)` 弹 OpenFileDlg → `(open-and-wait)` → `(zoom-all)` |
+| `13_action_move_component.lsp` | **移动器件**：`move_component` → `(mouse-box-select …)` → 参考点 click → 跟手 → 放下 → `save-project` |
 
 ## 打开 PCB 与读取（推荐流程）
 
@@ -67,6 +68,12 @@ lisp-load Samples/Scripts/Lisp/10_pick_highlight_lock.lsp
 
 ```text
 lisp-load Samples/Scripts/Lisp/11_choose_file.lsp
+```
+
+7. （可选）移动器件（框选 → 参考点 → 跟手放下）：
+
+```text
+lisp-load Samples/Scripts/Lisp/13_action_move_component.lsp
 ```
 
 路径须落在 Session load 白名单（工程根、仓库根、`Scripts/`、`Samples/Scripts/Lisp`、应用目录等）。`(pcb-resolve)` / `lisp-load` 相对路径**优先白名单根且优先非空文件**，再回退 cwd，因此在 `.app` 内启动时仍可写：

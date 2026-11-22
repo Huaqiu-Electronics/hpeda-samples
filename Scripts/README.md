@@ -18,6 +18,15 @@ python-load Samples/Scripts/Python/09_action_route.py
 go-load     Samples/Scripts/Go/09_action_route
 ```
 
+移动器件（对齐 `13_action_move_component.lsp`：开板 → `move_component` → 框选 → 参考点 → 跟手 → 放下 → 保存）：
+
+```text
+lisp-load   Samples/Scripts/Lisp/13_action_move_component.lsp
+js-load     Samples/Scripts/Js/13_action_move_component.js
+python-load Samples/Scripts/Python/13_action_move_component.py
+go-load     Samples/Scripts/Go/13_action_move_component
+```
+
 拾取 / Highlight / Lock（对齐 `10_pick_highlight_lock.lsp`；菜单 View/Highlight、Edit/Lock）：
 
 ```text
