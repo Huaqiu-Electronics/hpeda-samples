@@ -41,7 +41,7 @@ begin:constraint_net|id:INTEGER:-1|netname:TEXT:''|diffnetspace:TEXT:''|samenets
 end:constraint_net
 begin:constraint_net_group|id:INTEGER:-1|name:TEXT:''|member:TEXT:''|diffnetspace:TEXT:''|samenetspace:TEXT:''|widthrule:TEXT:''|defaultvia:TEXT:''|type:TEXT:''|voltage:REAL:0.0|requiredtestpoint:REAL:0.0|backdrillmaxpthstub:REAL:0.0|topology:REAL:0.0|maxstublength:REAL:0.0|viacount:REAL:0.0|targetimpedence:REAL:0.0|pinpairsmode:REAL:0.0|pin1delay:REAL:0.0|pin2delay:REAL:0.0|minpropdelay:REAL:0.0|maxpropdelay:REAL:0.0|mintotaletchlength:REAL:0.0|maxtotaletchlength:REAL:0.0
 end:constraint_net_group
-begin:constraint_pin_pair|id:INTEGER:-1|pinpair:TEXT:''|netid:INTEGER:0|minpropdelay:REAL:0.0|maxpropdelay:REAL:0.0
+begin:constraint_pin_pair|id:INTEGER:-1|pinpair:TEXT:''|netid:INTEGER:0|minpropdelay:REAL:0.0|maxpropdelay:REAL:0.0|matchGroup:TEXT:''
 end:constraint_pin_pair
 begin:copper_pour_contour|id:INTEGER:-1|region_id:INTEGER:0|contour_type:INTEGER:0|seq_no:INTEGER:0|is_closed:INTEGER:0|ring_data:BLOB:\\b 
 6192449487634435|6755399441055746|1||1
