@@ -11,8 +11,11 @@ import (
 const cmdHello = "samples_go_hello"
 
 func main() {
-	pcb.HandleCommand(cmdHello, func(name string) error {
-		return pcb.ShowMessage("Hello from Samples/Plugins/Go/01_hello", 0, 4000)
+	pcb.HandleCommand(cmdHello, func(string, []string) (string, error) {
+		if err := pcb.ShowMessage("Hello from Samples/Plugins/Go/01_hello", 0, 4000); err != nil {
+			return "", err
+		}
+		return "ok", nil
 	})
 
 	pcb.OnLifecycle("onAppInit", func() error {
