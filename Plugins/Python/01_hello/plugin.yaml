@@ -1,0 +1,11 @@
+# Samples 最小 Python 插件：注册 cmdlet + 菜单，点击后弹提示。
+id: samples.plugins.python.hello
+name: Samples Python Hello Plugin
+version: 1.0.0
+runtime: python
+entry: main.py
+execution: in_process
+menus:
+  - path: Plugins/Samples Python/Hello
+    command: samples_py_hello
+    views: [Pcb]

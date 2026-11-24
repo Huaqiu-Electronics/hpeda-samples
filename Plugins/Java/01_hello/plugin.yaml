@@ -1,0 +1,13 @@
+# Samples 最小 Java 插件：先 mvn -q package，再 loadplugin。
+id: samples.plugins.java.hello
+name: Samples Java Hello Plugin
+version: 1.0.0
+runtime: java
+entry: target/samples-java-hello.jar
+execution: out_of_process
+entryClass: plugin.EntryPoint
+entryMethod: initialize
+menus:
+  - path: Plugins/Samples Java/Hello
+    command: samples_java_hello
+    views: [Pcb]

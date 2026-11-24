@@ -1,0 +1,11 @@
+# 启动时加载 Samples 四语言 hello 插件（路径相对本文件所在目录）。
+# 用法：HQ PCB -P Samples/Plugins/startup-plugins.sample.yaml
+plugins:
+  - Js/01_hello/plugin.yaml
+  - Python/01_hello/plugin.yaml
+  # Java 须先在 Java/01_hello 下执行 mvn -q package
+  - Java/01_hello/plugin.yaml
+  # Go 需 PCB_ENABLE_GOSCRIPT=ON
+  - Go/01_hello/plugin.yaml
+ports:
+  telnet: 5555

@@ -1,0 +1,11 @@
+# Samples 最小 JS 插件：注册 cmdlet + 菜单，点击后弹提示。
+id: samples.plugins.js.hello
+name: Samples JS Hello Plugin
+version: 1.0.0
+runtime: javascript
+entry: main.js
+execution: in_process
+menus:
+  - path: Plugins/Samples Js/Hello
+    command: samples_js_hello
+    views: [Pcb]

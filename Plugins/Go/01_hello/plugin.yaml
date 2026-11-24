@@ -1,0 +1,10 @@
+# Samples 最小 Go WASM 常驻插件（runtime: go_wasm；需 PCB_ENABLE_GOSCRIPT=ON）。
+id: samples.plugins.go.hello
+name: Samples Go Hello Plugin
+version: 1.0.0
+runtime: go_wasm
+entry: main.go
+menus:
+  - path: Plugins/Samples Go/Hello
+    command: samples_go_hello
+    views: [Pcb]

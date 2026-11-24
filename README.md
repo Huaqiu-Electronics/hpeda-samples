@@ -17,4 +17,11 @@ HQEDA Samples
 
 | 路径 | 说明 |
 |------|------|
+| [Scripts](./Scripts/README.md) | 控制台一键脚本（Lisp / Js / Python / Go） |
 | [Scripts/Lisp](./Scripts/Lisp/README.md) | HQ-LISP 样例（需 `PCB_ENABLE_LISP=ON`） |
+
+## Plugins
+
+| 路径 | 说明 |
+|------|------|
+| [Plugins](./Plugins/README.md) | 多语言插件最小示例（Js / Python / Java / Go） |
