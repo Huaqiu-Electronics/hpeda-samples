@@ -1,0 +1,47 @@
+// hqpcb:host — desktop Go WASM guest ↔ HQ PCB host (wasip2 mid-term).
+package hqpcb:host@0.1.0;
+
+/// Guest → Host ops. Mirrors sdk/go/hqeda + GoScriptHost JSON envelopes.
+interface op {
+	/// Log to host output panel (pcb.Log).
+	log: func(message: string);
+
+	/// Run one AppCmdlet line; ok → result text, err → diagnostic.
+	cmdlet: func(line: string) -> result<string, string>;
+
+	/// Run one SQL query; result is compact JSON `{columns,rows}`.
+	query: func(sql: string) -> result<string, string>;
+
+	/// Flight-aligned doAction (script ClientFactory surface).
+	do-action: func(method: string, body: string) -> result<string, string>;
+
+	/// Escape hatch: plugin / HostOp name + JSON object string as args.
+	call: func(name: string, args-json: string) -> result<string, string>;
+}
+
+/// Host → Guest (today: inbox/*.json). Optional export once linker can invoke.
+interface guest-events {
+	post-event: func(name: string, args-json: string) -> result<string, string>;
+}
+
+/// Guest world: import host op + wasi:cli (TinyGo wasip2 runtime needs cli imports).
+world plugin {
+	include wasi:cli/imports@0.2.0;
+	import op;
+	export wasi:cli/run@0.2.0;
+}
+
+/// File-bridge adapter: export op, implemented via PCB_HOST_DIR req/resp.
+/// Composed into plugin via `wac plug` so wasmtime CLI needs no custom linker.
+world host-adapter {
+	include wasi:cli/imports@0.2.0;
+	export op;
+}
+
+/// Future bidirectional world (not wired).
+world plugin-bidir {
+	include wasi:cli/imports@0.2.0;
+	import op;
+	export guest-events;
+	export wasi:cli/run@0.2.0;
+}
