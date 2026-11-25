@@ -1,0 +1,6 @@
+{
+	"inherits": ["wasip2"],
+	"wit-package": "./wit/proxy.wit",
+	"wit-world": "go:http/proxy",
+	"emulator": "wasmtime serve -Scli -Shttp --addr 127.0.0.1:0 {}"
+}
