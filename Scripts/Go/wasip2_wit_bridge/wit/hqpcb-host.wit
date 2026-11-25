@@ -19,15 +19,28 @@ interface op {
 	call: func(name: string, args-json: string) -> result<string, string>;
 }
 
-/// Host → Guest (today: inbox/*.json). Optional export once linker can invoke.
+/// Host → Guest push while guest is in wasi:cli/run (non-nested).
+/// Guest polls take-event in Run loop; ack-event completes waitAck.
+interface host-pull {
+	/// Non-blocking dequeue. none when empty.
+	/// Tuple: id, name, args-json.
+	take-event: func() -> option<tuple<string, string, string>>;
+
+	/// Complete a previously taken event (Host waitAck).
+	ack-event: func(id: string, ok: bool, result-text: string, error-text: string);
+}
+
+/// Host → Guest nested callback (during Guest→Host WIT/RPC).
 interface guest-events {
 	post-event: func(name: string, args-json: string) -> result<string, string>;
 }
 
-/// Guest world: import host op + wasi:cli (TinyGo wasip2 runtime needs cli imports).
+/// Guest world: import op + host-pull; export guest-events + wasi:cli/run.
 world plugin {
 	include wasi:cli/imports@0.2.0;
 	import op;
+	import host-pull;
+	export guest-events;
 	export wasi:cli/run@0.2.0;
 }
 
@@ -38,10 +51,11 @@ world host-adapter {
 	export op;
 }
 
-/// Future bidirectional world (not wired).
+/// Alias of plugin (kept for docs / older samples).
 world plugin-bidir {
 	include wasi:cli/imports@0.2.0;
 	import op;
+	import host-pull;
 	export guest-events;
 	export wasi:cli/run@0.2.0;
 }

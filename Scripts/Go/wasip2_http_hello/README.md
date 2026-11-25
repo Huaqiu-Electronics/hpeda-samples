@@ -7,13 +7,18 @@ Inbound HTTP via **wasi-http** + `wasmtime serve`（宿主绑端口，Guest 只�
 宿主检测到目录旁 `wasip2-http.json`（或源引用 wasi-http-go）后：
 
 1. `tinygo build -target=./wasip2-http.json`
-2. `wasmtime serve -Scli -Shttp --addr 127.0.0.1:0`（非 detached，随 HQ PCB 退出；再次 go-load 会替换）
-3. 回显 `Serving HTTP on http://127.0.0.1:<port>/`
+2. `GoWasiHttpServe` → `wasmtime serve -Scli -Shttp --addr 127.0.0.1:0`（非 detached；同 `id` 替换）
+3. 回显 `Serving HTTP on http://127.0.0.1:<port>/ (id=…)`
 
 ```text
 go-load Samples/Scripts/Go/wasip2_http_hello
-# → Serving HTTP on http://127.0.0.1:xxxxx/
+# → Serving HTTP on http://127.0.0.1:xxxxx/ (id=default)
 # curl 该地址 ⇒ hello wasip2-http
+
+script.go.run path=Samples/Scripts/Go/wasip2_http_hello id=hello2
+script.go.http.list
+script.go.http.stop default
+script.go.http.stop all
 ```
 
 若曾误用旧 wasip1 缓存：`script.go.cache.clear` 后再 go-load。
